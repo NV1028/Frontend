@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 import { 
   Nav, 
+  Login,  
+  CardList,
+  NewEventForm,
   Footer, 
-  Login,
-  Routes,  
+  Routes,
 } from './components'
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
     <div className="App">
       <Nav />
       <Login /> 
+      <CardList />
+      <NewEventForm />
       <Footer />
     </div>
   );

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth"
 
 const Login = (props) => {
-  const [data, setData] = useState({
-    email: "pam@dundermifflinpaperco.com",
-    password: "pam123"
-  });
+  const [data, setData] = useState({ 
+      email: "pam@dundermifflinpaperco.com",
+      password: "pam123"
+    });
 
   const handleChange = e => {
     console.log(e);
@@ -30,10 +30,11 @@ const Login = (props) => {
 
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
+      <h3>Please login</h3>
       <form onSubmit={handleSubmit}>
         <input
           name='email'
+          type='email'
           placeholder='Email'
           value={data.email}
           onChange={e => handleChange(e)}

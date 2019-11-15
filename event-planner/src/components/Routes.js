@@ -1,10 +1,11 @@
 import React from "react";
-
+import { Route } from "react-router-dom"
+import { Register } from "/"
 const Routes = (props) => {
 return (
-    <div>
-      <h2>Route Component Rendered</h2>
-    </div>
+  <div>
+      <Route exact path="/register" component={Register}/>
+  </div>
   )
 }
 

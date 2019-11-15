@@ -7,6 +7,8 @@ const Login = (props) => {
       "email": "",
       "password": ""
     });
+  const [user, setUser] = useState("user")
+
 
   const handleChange = e => {
     console.log(e);
@@ -25,6 +27,8 @@ const Login = (props) => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
         props.history.push('/');
+        setUser(res.data)
+        console.log(res.data)
       })
       .catch(err => console.log(err));
   };

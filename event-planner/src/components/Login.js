@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth"
+import { Link } from 'react-router-dom'
 
 const Login = (props) => {
   const [data, setData] = useState({ 
-      email: "pam@dundermifflinpaperco.com",
-      password: "pam123"
+      "email": "",
+      "password": ""
     });
 
   const handleChange = e => {
@@ -21,16 +22,17 @@ const Login = (props) => {
     axiosAuth()
       .post('/api/auth/login', data)
       .then(res => {
-        console.log(res.body)
-        localStorage.setItem('token', res.body.token)
-        props.history.push('/user');
+        console.log(res.data)
+        localStorage.setItem('token', res.data.token)
+        props.history.push('/');
       })
       .catch(err => console.log(err));
   };
 
   return (
     <>
-      <h3>Please login</h3>
+      <h3>Please login or register</h3>
+  <div><Link to={"/register"}>register</Link></div>
       <form onSubmit={handleSubmit}>
         <input
           name='email'
@@ -41,7 +43,7 @@ const Login = (props) => {
         />
         <input
           name='password'
-          type='password'
+          type='text'
           placeholder='Password'
           value={data.password}
           onChange={e => handleChange(e)}

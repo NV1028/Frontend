@@ -23,6 +23,7 @@ function App() {
       <CardList />
       <NewEventForm />
       <Footer />
+      <Routes />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import {
   NewEventForm,
   Footer, 
   Routes,
+  StoriesForm
 } from './components'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <CardList />
       <NewEventForm />
       <Footer />
+      <StoriesForm />
       <Routes />
     </div>
   );

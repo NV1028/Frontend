@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth"
 import { Link } from 'react-router-dom'
 
-const Register = (props) => {
+const StoriesForm = (props) => {
   const [data, setData] = useState({ 
-    "username": "",
-    "password": "",
+    "title": "",
+    "contents": "",
+    "email": "",
+    "user_id": null,
+    "pending":0
     });
 
   const handleChange = e => {
@@ -20,7 +23,7 @@ const Register = (props) => {
     e.preventDefault();
     console.log(data)
     axiosAuth()
-      .post('/users/register', data)
+      .post('/stories', data)
       .then(res => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
@@ -34,25 +37,39 @@ const Register = (props) => {
       <h3>Please register</h3>
   <div><Link to={"/"}>Home </Link></div>
       <form onSubmit={handleSubmit}>
-        <input
-          name='username'
+      <input
+          name='id'
           type='text'
-          placeholder='Username'
-          value={data.username}
+          placeholder='id'
+          value={data.user_id}
           onChange={e => handleChange(e)}
         />
         <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={data.password}
+          name='email'
+          type='email'
+          placeholder='email'
+          value={data.email}
           onChange={e => handleChange(e)}
         />
-        <button type='submit'>Register</button>
+         <input
+          name='title'
+          type='text'
+          placeholder='title'
+          value={data.title}
+          onChange={e => handleChange(e)}
+        />
+          <input
+          name='contents'
+          type='text'
+          placeholder='content'
+          value={data.contents}
+          onChange={e => handleChange(e)}
+        />
+        <button type='submit'>Submit Story</button>
       </form>
     </>
   );
 };
 
 
-export default Register
+export default StoriesForm

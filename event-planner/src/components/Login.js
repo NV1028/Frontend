@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Login = (props) => {
   const [data, setData] = useState({ 
-      "email": "",
+      "username": "",
       "password": ""
     });
   const [user, setUser] = useState("user")
@@ -22,7 +22,7 @@ const Login = (props) => {
     e.preventDefault();
     console.log(data)
     axiosAuth()
-      .post('/api/auth/login', data)
+      .post('/users/login', data)
       .then(res => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
@@ -39,10 +39,10 @@ const Login = (props) => {
   <div><Link to={"/register"}>register</Link></div>
       <form onSubmit={handleSubmit}>
         <input
-          name='email'
-          type='email'
-          placeholder='Email'
-          value={data.email}
+          name='username'
+          type='text'
+          placeholder='username'
+          value={data.username}
           onChange={e => handleChange(e)}
         />
         <input

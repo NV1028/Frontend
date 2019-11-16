@@ -6,4 +6,5 @@ import Nav from './Nav'
 import Routes from './Routes'
 import NewEventForm from './NewEventForm'
 import Register from './Register'
-export { CardList, Card, Footer, NewEventForm, Nav, Routes, Login, Register}
+import StoriesForm from './StoriesForm'
+export { CardList, Card, Footer, NewEventForm, Nav, Routes, Login, Register, StoriesForm}

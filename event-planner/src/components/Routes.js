@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom"
 import { Register } from "/"
 import NewEventForm from "./NewEventForm"
+import CardList from "./CardList"
 
 const Routes = (props) => {
 return (

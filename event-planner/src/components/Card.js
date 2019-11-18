@@ -9,20 +9,36 @@ const Cards= styled.div`
     margin-bottom: 32px;
     margin-right: 30px;
     min-height: 350px;
-    position: relative;
     vertical-align: top;
     width: 300px;
 `
 
+const Tittle= styled.div`
+    margin-top: 60px;
+    color: #ffc61a;
+`
 
+const Description= styled.div`
+    padding-right: 20px;
+    padding-left: 20px;
+    color: grey;
+`
 
 
 
 const Card = (props) => {
 return (
     <Cards>
-      <h2>{props.name}</h2>
-      <img src= {props.image} alt ="image of char"/>
+      <Tittle><h2>{props.event_name}</h2></Tittle>
+     <Description>
+        <h4>Aristoteles era un filosofo muy respetado en sus tiempos. 
+          Discipulo de Platon o de Isocrates.
+        
+        </h4>
+     </Description>
+      <h3>{props.budget}</h3>
+      <h3>{props.event_date}</h3>
+      <h3>{props.event_time}</h3>
     </Cards>
   )
 }

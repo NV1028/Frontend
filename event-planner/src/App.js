@@ -17,6 +17,7 @@ function App() {
 
 
   return (
+    <body>
     <div className="App">
       <Nav />
       <Login /> 
@@ -25,6 +26,7 @@ function App() {
       <Footer />
       <Routes />
     </div>
+    </body>
   );
 }
 

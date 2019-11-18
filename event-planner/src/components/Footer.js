@@ -15,6 +15,7 @@ const Navigator= styled.div`
     padding: 66px 42px 80px;
     text-align: center;
     color: #ffc61a;
+
 `
 
 

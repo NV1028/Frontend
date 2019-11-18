@@ -8,11 +8,11 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import { reducer as dataStatusReducer } from "./reducers/dataStatus";
+import { reducer as loginReducer } from "./reducers/login";
 
 
 const rootReducer = combineReducers({
-    dataStatus: dataStatusReducer
+    login: loginReducer
   })
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

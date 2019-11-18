@@ -6,25 +6,31 @@ import styled from "styled-components";
 
 
 const Navigator= styled.div`
-border-bottom: 1px solid rgb(172, 197, 160);
 width: 100%;
 height: 70px;
 position: sticky;
 top: 0;
-background: white;
 display: flex;
 justify-content: flex-start;
 align-items: center;
-background: #666666;
+background: #d5d8e0;
 `
 
 
 const Nava= styled.div`
-    color: lightgreen;
+    color: #2f3d56;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-right: 20px;
     margin-left: 30px;
+    font-weight: 500;
+
+    &:hover {
+    background-color: transparent;
+    border-bottom: 1px solid #2f3d56;
+    color: #2f3d56;
+    text-decoration: none
+    }
 `
 
 

@@ -1,10 +1,48 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
+import Card from "./Card";
+import styled from "styled-components";
+
+
+const CardHolder = styled.div`
+display: flex;
+flex-direction: row;
+width: 1200px;
+flex-wrap: wrap;
+margin: 0 auto;
+justify-content: center;
+margin-top: 50px;
+
+
+`
+
+
 
 const CardList = (props) => {
+
+const [data, setData] = useState([]);
+
+
+
+useEffect(() => {
+
+  axios
+  .get(`https://rickandmortyapi.com/api/character/`)
+  .then(response => { 
+      setData(response.data.results);
+  })
+  .catch(error => {
+   console.log(`The error was: ${error}`) 
+  })
+}, [data]);
+
+
 return (
-    <div>
-      <h2>CardList Component Rendered</h2>
-    </div>
+    <CardHolder>
+{data.map(char => (
+           <Card name={char.name} image={char.image} />
+        ))}
+    </CardHolder>
   )
 }
 

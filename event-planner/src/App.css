@@ -17,16 +17,11 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
-}
-
-
 
 
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #adafb6;
+  background-color: #d5d8e0;
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

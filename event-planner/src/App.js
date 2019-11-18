@@ -19,11 +19,9 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Login /> 
-      <CardList />
-      <NewEventForm />
-      <Footer />
+      
       <Routes />
+      <Footer />
     </div>
   );
 }

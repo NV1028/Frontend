@@ -8,6 +8,7 @@ return (
   <div>
       <Route exact path="/register" component={Register}/>
       <Route exact path="/newevent" component={NewEventForm}/>
+      <Route exact path="/events" component={CardList}/>
   </div>
   )
 }

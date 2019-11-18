@@ -1,12 +1,10 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
+ }
+ .App-logo {
   height: 40vmin;
-}
-
-.App-header {
+ }
+ .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,51 +13,48 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-
-
-
-
-body{
+ }
+ body{
   font-family: 'Roboto', sans-serif;
-  background-color: #adafb6;
+  background-color: #d5d8e0;
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #343740;
-}
-
-
-
-
-.formInput{
+ }
+ .formInput{
   padding: 7px 18px;
   border: 1px solid #ecedf2;
   border-radius: 12px;
-  
-}
-.formInput:hover{
+ }
+ .formInput:hover{
   padding: 7px 18px;
   border: 1px solid #ebc492;
   border-radius: 12px;
-  
-}
-
-.formLabel{
+ }
+ .formLabel{
   font-weight: 570;
-}
-.submit-button{
+ }
+ .submit-button{
   margin:15px 0;
   background-color: #ebc492;
-  border: 1px solid #ebc492;
+  border: 1px solid #d3b38a;
   padding: 5px 26px;
   border-radius: 12px;
   color:white;
   font-weight:bold;
   width:100px;
   text-align:center;
-}
+ }
+ .RegisterForm{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 20%;
+  min-width: 18%;
+  margin: auto;
+ }
+ #login-button{
+  margin: auto;
+ }

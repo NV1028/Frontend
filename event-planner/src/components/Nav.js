@@ -36,8 +36,8 @@ const Nav = (props) => {
 return (
     <Navigator>
      <Nava> <Link to={"/register"}><h3>SIGN UP</h3></Link></Nava>
-     <Nava> <Link to={"/newevent"}><h3>EVENTS</h3></Link></Nava>
-     <Nava> <Link to={"/cards"}><h3>CREATE NEW EVENT</h3></Link></Nava>
+     <Nava> <Link to={"/events"}><h3>EVENTS</h3></Link></Nava>
+     <Nava> <Link to={"/newevent"}><h3>CREATE NEW EVENT</h3></Link></Nava>
     </Navigator>
   )
 }

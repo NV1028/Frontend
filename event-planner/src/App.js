@@ -19,9 +19,8 @@ function App() {
   return (
     <div className="App">
       <Nav />
-     
-      <CardList />
-     
+      
+      <Routes />
       <Footer />
     </div>
   );

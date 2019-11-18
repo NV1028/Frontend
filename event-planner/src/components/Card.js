@@ -8,13 +8,13 @@ const Cards= styled.div`
     display: inline-block;
     margin-bottom: 32px;
     margin-right: 30px;
-    min-height: 350px;
+    height: 250px;
     vertical-align: top;
-    width: 300px;
+    width: 500px;
 `
 
 const Tittle= styled.div`
-    margin-top: 60px;
+    margin-top: 10px;
     color: #ffc61a;
 `
 

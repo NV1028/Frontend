@@ -13,18 +13,18 @@ position: sticky;
 top: 0;
 background: white;
 display: flex;
-justify-content: space-between;
+justify-content: flex-start;
 align-items: center;
 background: #666666;
 `
 
 
 const Nava= styled.div`
-    display: flex;
-    justify-content: space-between;
-    display: flex;
-    margin: 0 auto;
-    color: #ffc61a;
+    color: lightgreen;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-right: 20px;
+    margin-left: 30px;
 `
 
 
@@ -35,9 +35,9 @@ const Nava= styled.div`
 const Nav = (props) => {
 return (
     <Navigator>
-     <Nava> <Link to={"/register"}><h3>SIGN UP</h3></Link></Nava>
-     <Nava> <Link to={"/events"}><h3>EVENTS</h3></Link></Nava>
-     <Nava> <Link to={"/newevent"}><h3>CREATE NEW EVENT</h3></Link></Nava>
+   <Link to={"/register"}  style={{ textDecoration: 'none' }}> <Nava>SIGN UP</Nava></Link>
+     <Link to={"/events"}   style={{ textDecoration: 'none' }}><Nava>EVENTS </Nava></Link>
+      <Link to={"/newevent"}  style={{ textDecoration: 'none' }}><Nava>CREATE NEW EVENT</Nava></Link>
     </Navigator>
   )
 }

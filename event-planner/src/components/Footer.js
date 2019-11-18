@@ -11,10 +11,14 @@ const Navigator= styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    text-decoration: none;
     background: #666666;
     padding: 66px 42px 80px;
     text-align: center;
     color: #ffc61a;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: red;
 
 `
 

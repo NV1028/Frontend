@@ -35,9 +35,9 @@ const Nava= styled.div`
 const Nav = (props) => {
 return (
     <Navigator>
-     <Nava> <h3>SIGN UP</h3></Nava>
-     <Nava> <h3>EVENTS</h3></Nava>
-     <Nava> <h3>CREATE NEW EVENT</h3></Nava>
+     <Nava> <Link to={"/register"}><h3>SIGN UP</h3></Link></Nava>
+     <Nava> <Link to={"/newevent"}><h3>EVENTS</h3></Link></Nava>
+     <Nava> <Link to={"/cards"}><h3>CREATE NEW EVENT</h3></Link></Nava>
     </Navigator>
   )
 }

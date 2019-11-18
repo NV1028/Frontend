@@ -15,7 +15,7 @@ const Cards= styled.div`
 
 const Tittle= styled.div`
     margin-top: 60px;
-    color: blue;
+    color: #ffc61a;
 `
 
 const Description= styled.div`

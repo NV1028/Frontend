@@ -50,11 +50,24 @@ body{
 .submit-button{
   margin:15px 0;
   background-color: #ebc492;
-  border: 1px solid #ebc492;
+  border: 1px solid #d3b38a;
   padding: 5px 26px;
   border-radius: 12px;
   color:white;
   font-weight:bold;
   width:100px;
   text-align:center;
+}
+
+.RegisterForm{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 20%;
+  min-width: 18%;
+  margin: auto;
+}
+#login-button{
+  margin: auto;
 }

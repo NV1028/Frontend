@@ -1,12 +1,10 @@
 import './App.css';
-import React, { useState } from "react";
+import React from "react";
 
 
 import { 
   Nav, 
   Login,  
-  CardList,
-  NewEventForm,
   Footer, 
   Routes
 } from './components'
@@ -19,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      
-      <Routes />
+      <Login />
       <Footer />
+      <Routes />
     </div>
   );
 }

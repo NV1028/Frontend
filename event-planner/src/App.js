@@ -17,16 +17,13 @@ function App() {
 
 
   return (
-    <body>
     <div className="App">
       <Nav />
-      <Login /> 
+     
       <CardList />
-      <NewEventForm />
+     
       <Footer />
-      <Routes />
     </div>
-    </body>
   );
 }
 

@@ -40,8 +40,8 @@ useEffect(() => {
 return (
     <CardHolder>
       
-{data.map(char => (
-           <Card event_name={char.name} description={char.species} budget={char.status} event_date={char.gender} event_time={char.id}  />
+{data.map(info => (
+           <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id}  />
         ))}
     </CardHolder>
   )

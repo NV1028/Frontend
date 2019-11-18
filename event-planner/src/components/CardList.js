@@ -39,8 +39,9 @@ useEffect(() => {
 
 return (
     <CardHolder>
+      
 {data.map(char => (
-           <Card name={char.name} image={char.image} />
+           <Card event_name={char.name} description={char.species} budget={char.status} event_date={char.gender} event_time={char.id}  />
         ))}
     </CardHolder>
   )

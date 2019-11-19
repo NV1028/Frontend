@@ -12,7 +12,7 @@ export const login = (creds, history) => (dispatch) => {
          console.log(res)
          localStorage.setItem("token", res.data.token)
          localStorage.setItem("id", res.data.userid)
-         dispatch({type: LOGIN_SUCCESS})
+         dispatch({type: LOGIN_SUCCESS, payload: res.data.userId})
          history.push('/events')
     })
     .catch(err => console.log(err.res))

@@ -118,9 +118,10 @@ const NewEventForm = props => {
     </>
   );
 };
-
+{
 const mapStateToProps = state => {
   return {};
+}
 };
 
 export default NewEventForm;

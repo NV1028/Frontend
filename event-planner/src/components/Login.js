@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth"
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 
 const Login = (props) => {
   const [data, setData] = useState({ 
       "email": "",
       "password": ""
     });
-  const [user, setUser] = useState("user")
+  const [userId, setUserId] = useState("user")
 
 
   const handleChange = e => {
@@ -26,9 +28,10 @@ const Login = (props) => {
       .then(res => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
-        props.history.push('/');
-        setUser(res.data)
+        localStorage.setItem("id", res.data.userid)
+        setUserId(res.data.userid)
         console.log(res.data)
+        props.history.push('/events');
       })
       .catch(err => console.log(err));
   };
@@ -57,6 +60,25 @@ const Login = (props) => {
     </>
   );
 };
+{
+// function mapStateToProps(state) {
+//   return {
+
+//   };
+// }
+
+// const mapStateToProps = state => {
+//   return{
+
+//   }
+// }
 
 
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Login);
+}
 export default Login
+

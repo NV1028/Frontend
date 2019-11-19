@@ -27,7 +27,7 @@ const Nava= styled.div`
 
     &:hover {
     background-color: fff;
-    border-bottom: 1px solid #68b8ff;
+    border-bottom: 1px solid #3dade2;
     color: #2f3d56;
     
     }

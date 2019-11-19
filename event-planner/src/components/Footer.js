@@ -10,7 +10,7 @@ const Foot= styled.div`
     justify-content: space-around;
     align-items: center;
     text-decoration: none;
-    background: #66b3ff;
+    background: #1f2533;
     padding: 33px 21px 40px;
     text-align: center;
     font-size: 0.9rem;
@@ -28,7 +28,7 @@ flex-direction: column;
 
 
 const Foota= styled.div`
-color: #2f3d56;
+color: white;
 font-weight: 400;
 font-size: 0.8rem;
 margin-right: 20px;
@@ -39,7 +39,7 @@ line-height: 1.7rem;
 &:hover {
 background-color: fff;
 border-bottom: 1px solid #68b8ff;
-color: #2f3d56;
+color: #ebc492;
 
 }
 `

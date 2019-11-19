@@ -9,7 +9,9 @@ import {
   Register,
   LandingPage,  
   Footer, 
-  Routes
+  Routes,
+  CardList,
+  NewEventForm
 } from './components'
 
 
@@ -19,10 +21,13 @@ function App() {
 
   return (
     <div className="App">
-    <Switch>
-      <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
-      <Route exact path="/" component={LandingPage} />
+      <Nav/>
+       <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/events" component={CardList} />
+        <Route exact path="/newevent" component={NewEventForm}/>
     </Switch>
     </div>
   );

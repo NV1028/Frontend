@@ -23,7 +23,7 @@ const Divide= styled.div`
 
 const Tittle= styled.div`
     margin-top: 10px;
-    color: #68b8ff;
+    color: #3dade2;
     font-size: 0.8rem;
     display: flex;
     flex-direction: flex-start;

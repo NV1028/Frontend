@@ -41,7 +41,7 @@ return (
     <CardHolder>
       
 {data.map(info => (
-           <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id}  />
+           <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id} image={info.image} />
         ))}
     </CardHolder>
   )

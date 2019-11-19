@@ -6,17 +6,38 @@ const NewEventForm = props => {
   const [makeEvent, setMakeEvent] = useState({
     event_name: "",
     description: "",
-    budget: "",
     event_date: "",
     event_time: "",
+    budget: "",
     assigned_to_user: id
   });
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const [newUser, setUsers] = useState([
+    // { event_name: "one", description: "two", event_date: "three", event_time: "four" , budget: "five"  }
+    
+  ]);
+
+  const addNewUser = event => {
+    setMakeEvent([...makeEvent, event]);
   };
 
-  const handleChanges = e => {
+  // const [user, setUser] = useState({ 
+  //   event_name: "", 
+  //   description: "", 
+  //   event_date: "", 
+  //   event_time: "" , 
+  //   budget: ""  
+  // });
+
+  const submitForm = e => {
+    e.preventDefault();
+    // addNewUser(user);
+    console.log(newUser);
+    console.log(makeEvent);
+  
+  };
+
+  const handleChange = e => {
     setMakeEvent({
       ...makeEvent,
       [e.target.name]: e.target.value
@@ -30,7 +51,7 @@ const NewEventForm = props => {
           <h4 id="landingText">Use the form below to create a new event!</h4>
         </div>
         <div className="landingFormInner">
-          <form onSubmit={handleSubmit} className="">
+          <form onSubmit={event => submitForm(event)} className="">
             <label className="formLabel">
               {" "}
               Name of Event:
@@ -41,7 +62,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="Stakeholders Meeting"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -56,7 +77,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="Financial Advisory"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -72,7 +93,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="MM-DD-YY"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
               <br />
@@ -88,7 +109,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="HH:MM AM/PM"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -103,7 +124,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="$$$"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>

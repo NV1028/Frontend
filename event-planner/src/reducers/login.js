@@ -2,6 +2,7 @@ import {
      LOGIN_REQUEST, 
      REQUEST_FAILURE,
      LOGIN_SUCCESS,
+     SET_AUTHED_USER
  } from  '../actions/'
  
  const initialState = {
@@ -29,6 +30,14 @@ import {
                  isLoggedIn: true,
                  userId: action.payload
                }
+               case SET_AUTHED_USER:
+                    return{
+                        ...state,
+                        isFetching: false,
+                        isLoggedIn: true,
+                        userId: action.payload
+                    }
+            
        
      default:
           return state;

@@ -18,3 +18,12 @@ export const login = (creds, history) => (dispatch) => {
     .catch(err => console.log(err.res))
     dispatch({type: REQUEST_FAILURE})
 }
+
+
+export const SET_AUTHED_USER = "SET_AUTHED_USER"
+
+export const setUser = (id) => {
+    return {
+        type: "SET_AUTHED_USER", payload: id
+    }
+}

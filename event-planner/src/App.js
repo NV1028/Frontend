@@ -1,7 +1,9 @@
 import './App.css';
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom"
-
+import { connect } from 'react-redux'
+import { setUser } from './actions'
+import decode from 'jwt-decode'
 
 import { 
   Nav, 
@@ -16,8 +18,15 @@ import {
 
 
 
-function App() {
-
+function App( props ) {
+    console.log(props)
+useEffect( ()=> {
+    if (props.userId === null && localStorage.getItem('token') ){
+        console.log(null)
+        const decoded = decode(localStorage.getItem("token"))
+        props.setUser(decoded.subject)
+    }
+},[])  
 
   return (
     <div className="App">
@@ -33,4 +42,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+    userId: state.login.userId
+})
+
+export default connect(mapStateToProps, { setUser})(App)

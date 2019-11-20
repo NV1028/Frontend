@@ -31,11 +31,11 @@ const Login = (props) => {
     //     localStorage.setItem("id", res.data.userid)
     //     setUserId(res.data.userid)
     //     console.log(res.data)
-        props.login(creds, props.history)
-        props.history.push('/events');
-      })
-      .catch(err => console.log(err));
-  };
+      // })
+      // .catch(err => console.log(err));
+      props.login(creds, props.history)
+      props.history.push('/events');
+    };
 
   return (
     <>

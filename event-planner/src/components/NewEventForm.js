@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { connect } from 'react-redux'
-import { newEventForm } from "../actions/"
+import { connect } from "react-redux";
+import { newEventForm } from "../actions/";
 
 const NewEventForm = props => {
-
   const [newEvent, setNewEvent] = useState({
     event_name: "",
     description: "",
     event_date: "",
     event_time: "",
     budget: "",
-    assigned_to_user:null
-
+    assigned_to_user: null
   });
-
- 
 
   const handleChange = e => {
     console.log(e);
@@ -26,11 +22,10 @@ const NewEventForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const eventValues = {...newEvent, assigned_to_user:props.login.userId} 
-    console.log(eventValues)
-    props.newEventForm(eventValues, props.history)
-    };
-
+    const eventValues = { ...newEvent, assigned_to_user: props.login.userId };
+    console.log(eventValues);
+    props.newEventForm(eventValues, props.history);
+  };
 
   return (
     <>
@@ -47,8 +42,6 @@ const NewEventForm = props => {
               <input
                 type="text"
                 name="event_name"
-                // value=
-                // value needs assignment with api post
                 placeholder="Stakeholders Meeting"
                 onChange={event => handleChange(event)}
                 className="formInput"
@@ -62,8 +55,6 @@ const NewEventForm = props => {
               <input
                 type="text"
                 name="description"
-                // value=
-                // value needs assignment with api post
                 placeholder="Financial Advisory"
                 onChange={event => handleChange(event)}
                 className="formInput"
@@ -78,8 +69,6 @@ const NewEventForm = props => {
               <input
                 type="text"
                 name="event_date"
-                // value=
-                // value needs assignment with api post
                 placeholder="MM-DD-YY"
                 onChange={event => handleChange(event)}
                 className="formInput"
@@ -94,8 +83,6 @@ const NewEventForm = props => {
               <input
                 type="text"
                 name="event_time"
-                // value=
-                // value needs assignment with api post
                 placeholder="HH:MM AM/PM"
                 onChange={event => handleChange(event)}
                 className="formInput"
@@ -109,8 +96,6 @@ const NewEventForm = props => {
               <input
                 type="text"
                 name="budget"
-                // value=
-                // value needs assignment with api post
                 placeholder="$$$"
                 onChange={event => handleChange(event)}
                 className="formInput"
@@ -134,12 +119,4 @@ function mapStateToProps(state) {
   };
 }
 
-
-
-export default connect(
-  mapStateToProps,
-  { newEventForm }
-)(NewEventForm);
-
-
-
+export default connect(mapStateToProps, { newEventForm })(NewEventForm);

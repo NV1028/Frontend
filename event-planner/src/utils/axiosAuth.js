@@ -1,14 +1,14 @@
-import axios from 'axios'
+import axios from "axios";
 
 export function getToken() {
-    return localStorage.getItem('token')
+  return localStorage.getItem("token");
 }
 
-export default function () {
-    return axios.create({
-        baseURL: "https://bw-corporate-event-planner.herokuapp.com",
-        headers: {
-            Authorization: getToken(),
-        }
-    })
+export default function() {
+  return axios.create({
+    baseURL: "https://bw-corporate-event-planner.herokuapp.com",
+    headers: {
+      Authorization: getToken()
+    }
+  });
 }

@@ -1,49 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux'
+import { newEventForm } from "../actions/"
 
 const NewEventForm = props => {
-  let id = parseInt(localStorage.getItem("id"));
 
-  const [makeEvent, setMakeEvent] = useState({
+  const [newEvent, setNewEvent] = useState({
     event_name: "",
     description: "",
     event_date: "",
     event_time: "",
     budget: "",
-    assigned_to_user: id
+    assigned_to_user:null
+
   });
 
-  const [newUser, setUsers] = useState([
-    // { event_name: "one", description: "two", event_date: "three", event_time: "four" , budget: "five"  }
-    
-  ]);
-
-  const addNewUser = event => {
-    setMakeEvent([...makeEvent, event]);
-  };
-
-  // const [user, setUser] = useState({ 
-  //   event_name: "", 
-  //   description: "", 
-  //   event_date: "", 
-  //   event_time: "" , 
-  //   budget: ""  
-  // });
-
-  const submitForm = e => {
-    e.preventDefault();
-    // addNewUser(user);
-    console.log(newUser);
-    console.log(makeEvent);
-  
-  };
+ 
 
   const handleChange = e => {
-    setMakeEvent({
-      ...makeEvent,
+    console.log(e);
+    setNewEvent({
+      ...newEvent,
       [e.target.name]: e.target.value
     });
-    console.log(e.target);
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const eventValues = {...newEvent, assigned_to_user:props.login.userId} 
+    console.log(eventValues)
+    props.newEventForm(eventValues, props.history)
+    };
+
+
   return (
     <>
       <div className="oboardingFormOuter">
@@ -51,7 +39,7 @@ const NewEventForm = props => {
           <h4 id="landingText">Use the form below to create a new event!</h4>
         </div>
         <div className="landingFormInner">
-          <form onSubmit={event => submitForm(event)} className="">
+          <form onSubmit={handleSubmit}>
             <label className="formLabel">
               {" "}
               Name of Event:
@@ -140,8 +128,18 @@ const NewEventForm = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {};
-};
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
 
-export default NewEventForm;
+
+
+export default connect(
+  mapStateToProps,
+  { newEventForm }
+)(NewEventForm);
+
+
+

@@ -45,6 +45,10 @@ color: #ebc492;
 `
 
 
+
+
+
+
 const Footer = (props) => {
 return (
     <Foot>

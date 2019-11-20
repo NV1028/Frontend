@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import Card from "./Card";
 import styled from "styled-components";
+import { connect } from "react-redux"
+import { fetchEvents } from "../actions"
 
 
 const CardHolder = styled.div`
@@ -18,33 +19,46 @@ margin-top: 50px;
 
 
 
+
 const CardList = (props) => {
-
-const [data, setData] = useState([]);
-
-
-
-useEffect(() => {
-
-  axios
-  .get(`https://rickandmortyapi.com/api/character/`)
-  .then(response => { 
-      setData(response.data.results);
-  })
-  .catch(error => {
-   console.log(`The error was: ${error}`) 
-  })
-}, [data]);
-
+  const [events, setEvents] = useState([])
+  useEffect(() => {
+    props.fetchEvents(props.login.userId)
+    console.log("events")
+    console.log(props.fetchEvents.eventList)
+    setEvents(props.fetchEvents.eventList)
+},[])
 
 return (
     <CardHolder>
-      
-{data.map(info => (
-           <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id} image={info.image} />
-        ))}
+{/* {events.map(info => (
+  <Card event_name={info.event_name} description={info.description} budget={info.budget} event_date={info.event_date} event_time={info.event_time} />
+))} */}
     </CardHolder>
   )
 }
 
-export default CardList
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+
+
+export default connect(
+  mapStateToProps,
+  { fetchEvents }
+)(CardList);
+
+
+// return (
+//     <CardHolder>
+      
+// {data.map(info => (
+//            <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id} image={info.image} />
+//         ))}
+//     </CardHolder>
+//   )
+// }
+

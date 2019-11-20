@@ -1,6 +1,6 @@
 import {
      LOGIN_REQUEST, 
-     REQUEST_FAILURE,
+     LOGIN_FAILURE,
      LOGIN_SUCCESS,
      SET_AUTHED_USER
  } from  '../actions/'
@@ -18,7 +18,7 @@ import {
                     ...state,
                     isFetching: true
                }
-          case REQUEST_FAILURE: 
+          case LOGIN_FAILURE: 
                return{
                     ...state,
                     isFetching: false

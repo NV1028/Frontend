@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"
+import { register } from "../actions"
 
 const Register = props => {
-  const [data, setData] = useState({
+  const [regInfo, setRegInfo] = useState({
     email: "",
     password: "",
     role: "",
@@ -12,23 +14,24 @@ const Register = props => {
 
   const handleChange = e => {
     console.log(e);
-    setData({
-      ...data,
+    setRegInfo({
+      ...regInfo,
       [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(data);
-    axiosAuth()
-      .post("/api/auth/register", data)
-      .then(res => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token);
-        props.history.push("/user");
-      })
-      .catch(err => console.log(err));
+    console.log(regInfo);
+    // axiosAuth()
+    //   .post("/api/auth/register", data)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     localStorage.setItem("token", res.data.token);
+    //     props.history.push("/user");
+    //   })
+    //   .catch(err => console.log(err));
+    props.register(regInfo, props.history)
   };
 
   return (
@@ -45,7 +48,7 @@ const Register = props => {
             name="email"
             type="email"
             placeholder="Email"
-            value={data.email}
+            value={regInfo.email}
             className="formInput"
             onChange={e => handleChange(e)}
           />
@@ -55,7 +58,7 @@ const Register = props => {
             name="password"
             type="password"
             placeholder="Password"
-            value={data.password}
+            value={regInfo.password}
             className="formInput"
             onChange={e => handleChange(e)}
           />
@@ -65,7 +68,7 @@ const Register = props => {
             name="role"
             type="test"
             placeholder="Role"
-            value={data.role}
+            value={regInfo.role}
             className="formInput"
             onChange={e => handleChange(e)}
           />
@@ -75,7 +78,7 @@ const Register = props => {
             name="company"
             type="text"
             placeholder="Company"
-            value={data.company}
+            value={regInfo.company}
             className="formInput"
             onChange={e => handleChange(e)}
           />
@@ -90,4 +93,18 @@ const Register = props => {
   );
 };
 
-export default Register;
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+
+
+export default connect(
+  mapStateToProps,
+  { register }
+)(Register);
+
+
+

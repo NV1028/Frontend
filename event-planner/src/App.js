@@ -19,6 +19,7 @@ import {
 
 
 function App( props ) {
+
     console.log(props)
 useEffect( ()=> {
     if (props.userId === null && localStorage.getItem('token') ){
@@ -46,4 +47,4 @@ const mapStateToProps = state => ({
     userId: state.login.userId
 })
 
-export default connect(mapStateToProps, { setUser})(App)
+export default connect(mapStateToProps, { setUser })(App)

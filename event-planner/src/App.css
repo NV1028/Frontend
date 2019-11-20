@@ -5,7 +5,7 @@
   height: 40vmin;
  }
  .App-header {
-  background-color: #282c34;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,8 @@
   color: white;
  }
  body{
-  font-family: 'Roboto', sans-serif;
-  background-color: #d5d8e0;
+  font-family: "open sans", sans-serif;
+  background-color: #fff;
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -58,3 +58,6 @@
  #login-button{
   margin: auto;
  }
+a{
+  text-decoration: none;
+}

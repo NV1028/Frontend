@@ -3,28 +3,45 @@ import { Link } from 'react-router-dom'
 import styled from "styled-components";
 
 
-
-
-const Navigator= styled.div`
-border-bottom: 1px solid rgb(172, 197, 160);
-width: 100%;
-height: 70px;
-position: sticky;
-top: 0;
-background: white;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: #666666;
+const Foot= styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    background: #1f2533;
+    padding: 33px 21px 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    height: 130px;
+    margin-top: 100px;
 `
 
 
-const Nava= styled.div`
-    display: flex;
-    justify-content: space-between;
-    display: flex;
-    margin: 0 auto;
-    color: #ffc61a;
+const Order= styled.div`
+display: flex;
+flex-direction: column;
+`
+
+
+
+const Foota= styled.div`
+color: white;
+font-weight: 400;
+font-size: 0.8rem;
+margin-right: 20px;
+margin-left: 30px;
+font-weight: 600;
+line-height: 1.7rem;
+
+&:hover {
+background-color: fff;
+border-bottom: 1px solid #68b8ff;
+color: #ebc492;
+
+}
 `
 
 
@@ -34,11 +51,37 @@ const Nava= styled.div`
 
 const Footer = (props) => {
 return (
-    <Navigator>
-     <Nava> <Link to={"/register"}><h3>SIGN UP</h3></Link></Nava>
-     <Nava> <Link to={"/events"}><h3>EVENTS</h3></Link></Nava>
-     <Nava> <Link to={"/newevent"}><h3>CREATE NEW EVENT</h3></Link></Nava>
-    </Navigator>
+    <Foot>
+        <Order>
+        <a href="index.html"><Foota>Home</Foota></a>
+        <a href="#"><Foota>Team</Foota></a>
+        <a href="#"><Foota>Sign In</Foota></a>
+      </Order>
+  
+      <Order>
+        <a href="#"><Foota>Blog</Foota></a>
+        <a href="#"><Foota>Careers</Foota></a>
+        <a href="#"><Foota>Press</Foota></a>
+      </Order>
+  
+      <Order>
+        <a href="#"><Foota>Contact Us</Foota></a>
+          <a href="#"><Foota>support@evenplanner.com</Foota></a>
+          <a href="#"><Foota>press@evenplanner.com</Foota></a>
+        </Order>
+      
+  <Order>
+        <a href="#"><Foota>Media</Foota></a>
+    
+          <a href="#">
+            <Foota>Twitter</Foota>
+          </a>
+          <a href="#">
+            <Foota>Instagram</Foota>
+          </a>
+    
+  </Order>
+    </Foot>
   )
 }
 

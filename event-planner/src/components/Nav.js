@@ -6,25 +6,31 @@ import styled from "styled-components";
 
 
 const Navigator= styled.div`
-border-bottom: 1px solid rgb(172, 197, 160);
 width: 100%;
 height: 70px;
 position: sticky;
 top: 0;
-background: white;
 display: flex;
-justify-content: space-between;
+justify-content: flex-start;
 align-items: center;
-background: #666666;
+background: #fff;
 `
 
 
 const Nava= styled.div`
-    display: flex;
-    justify-content: space-between;
-    display: flex;
-    margin: 0 auto;
-    color: #ffc61a;
+    color: #2f3d56;
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin-right: 20px;
+    margin-left: 80px;
+    font-weight: 500;
+
+    &:hover {
+    background-color: fff;
+    border-bottom: 1px solid #3dade2;
+    color: #2f3d56;
+    
+    }
 `
 
 
@@ -35,9 +41,9 @@ const Nava= styled.div`
 const Nav = (props) => {
 return (
     <Navigator>
-     <Nava> <Link to={"/register"}><h3>SIGN UP</h3></Link></Nava>
-     <Nava> <Link to={"/events"}><h3>EVENTS</h3></Link></Nava>
-     <Nava> <Link to={"/newevent"}><h3>CREATE NEW EVENT</h3></Link></Nava>
+   <Link to={"/register"}  style={{ textDecoration: 'none' }}> <Nava>Sign Up</Nava></Link>
+     <Link to={"/events"}   style={{ textDecoration: 'none' }}><Nava>Events </Nava></Link>
+      <Link to={"/newevent"}  style={{ textDecoration: 'none' }}><Nava>Add New Event</Nava></Link>
     </Navigator>
   )
 }

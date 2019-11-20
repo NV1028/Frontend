@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom"
 import { connect } from 'react-redux'
 import { setUser } from './actions'
 import decode from 'jwt-decode'
-
+import { createGlobalStyle } from "styled-components";
 import { 
   Nav, 
   Login,
@@ -15,6 +15,14 @@ import {
   CardList,
   NewEventForm
 } from './components'
+
+
+const GlobalStyles = createGlobalStyle`
+  body {
+      @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+      font-family: 'Open Sans', sans-serif;
+  }
+`
 
 
 
@@ -33,6 +41,7 @@ useEffect( ()=> {
     <div className="App">
       <Nav/>
        <Switch>
+       <GlobalStyles />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />

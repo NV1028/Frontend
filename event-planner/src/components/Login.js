@@ -2,29 +2,29 @@ import React, { useState, useEffect } from "react";
 import axiosAuth from "../utils/axiosAuth"
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-
+import { login }  from '../actions'
 
 const Login = (props) => {
-  const [data, setData] = useState({ 
+  const [creds, setCreds] = useState({ 
       "email": "",
       "password": ""
     });
-  const [userId, setUserId] = useState("user")
+  const [userId, setUserId] = useState("")
 
 
   const handleChange = e => {
     console.log(e);
-    setData({
-      ...data,
+    setCreds({
+      ...creds,
       [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(data)
+    console.log(creds)
     axiosAuth()
-      .post('/api/auth/login', data)
+      .post('/api/auth/login', creds)
       .then(res => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
@@ -45,14 +45,14 @@ const Login = (props) => {
           name='email'
           type='email'
           placeholder='Email'
-          value={data.email}
+          value={creds.email}
           onChange={e => handleChange(e)}
         />
         <input
           name='password'
           type='text'
           placeholder='Password'
-          value={data.password}
+          value={creds.password}
           onChange={e => handleChange(e)}
         />
         <button type='submit'>Log In</button>
@@ -60,25 +60,19 @@ const Login = (props) => {
     </>
   );
 };
-{
-// function mapStateToProps(state) {
-//   return {
 
-//   };
-// }
+function mapStateToProps(state) {
+  return {
 
-// const mapStateToProps = state => {
-//   return{
-
-//   }
-// }
-
-
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Login);
+  };
 }
-export default Login
+
+
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);
+
+
 

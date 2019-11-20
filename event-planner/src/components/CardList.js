@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import Card from "./Card";
 import styled from "styled-components";
+import { connect } from "react-redux"
+import { fetchEvents } from "../actions"
 
 
 const CardHolder = styled.div`
@@ -21,17 +22,31 @@ margin-top: 50px;
 const CardList = (props) => {
 
   useEffect(() => {
-    props.fetchData()
+    props.fetchEvents(props.login.userId)
+    console.log("events")
+    console.log(props.fetchEvents.eventList)
 },[])
 
 return (
     <CardHolder>
       
-{data.map(info => (
+{/* {props.props.fetchEvents.eventList.map(info => (
            <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id}  />
-        ))}
+        ))} */}
     </CardHolder>
   )
 }
 
-export default CardList
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+
+
+export default connect(
+  mapStateToProps,
+  { fetchEvents }
+)(CardList);
+

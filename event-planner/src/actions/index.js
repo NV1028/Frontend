@@ -68,19 +68,16 @@ export const EVENTS_FETCH_REQUEST = "EVENTS_FETCH_REQUEST"
 export const EVENTS_FETCH_FAILURE = "EVENTS_FETCH_FAILURE"
 export const EVENTS_FETCH_SUCCESS = "EVENTS_FETCH_SUCCESS"
 
-
-export const fetchEvents = () => (dispatch) => {
+export const fetchEvents = (id) => (dispatch) => {
     dispatch({type: EVENTS_FETCH_REQUEST})
     // let id = parseInt(localStorage.getItem('id'))
-    const id = props.login.userId
+    // const id = props.login.userId
     axiosAuth()
     .get(`/api/events/user/${id}`)
-    .then(response => {
+    .then(res => {
          console.log(res.data)
-         dispatch({type: EVENTS_FETCH_FAILURE, payload: res.data})
-    })
-    .catch(err => {
+         dispatch({type: EVENTS_FETCH_SUCCESS, payload: res.data})
+        })
         .catch(err => console.log(err.res))
-        dispatch({ type: EVENTS_FETCH_SUCCESS })
-    })
-}
+        dispatch({type: EVENTS_FETCH_FAILURE})
+    }

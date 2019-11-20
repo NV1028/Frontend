@@ -39,14 +39,15 @@ useEffect( ()=> {
 
   return (
     <div className="App">
-      <Nav/>
+      <GlobalStyles />
+      <Nav />
        <Switch>
-       <GlobalStyles />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/events" component={CardList} />
         <Route exact path="/newevent" component={NewEventForm}/>
+      <Footer />
     </Switch>
     </div>
   );

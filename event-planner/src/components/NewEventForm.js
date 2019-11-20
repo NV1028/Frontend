@@ -1,24 +1,45 @@
 import React, { useState } from "react";
-
+import { connect } from 'react-redux'
+import { newEventForm } from "../actions/"
 const NewEventForm = props => {
-  let id = parseInt(localStorage.getItem("id"));
+  // let id = parseInt(localStorage.getItem("id"));
 
-  const [makeEvent, setMakeEvent] = useState({
+  const [newEvent, setNewEvent] = useState({
     event_name: "",
     description: "",
-    budget: "",
     event_date: "",
     event_time: "",
-    assigned_to_user: id
+    budget: "",
+    assigned_to_user: props.userId
   });
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const [newUser, setUsers] = useState([
+    // { event_name: "one", description: "two", event_date: "three", event_time: "four" , budget: "five"  }
+    
+  ]);
+
+  const addNewUser = event => {
+    setNewEvent([...newEvent, event]);
   };
 
-  const handleChanges = e => {
-    setMakeEvent({
-      ...makeEvent,
+  // const [user, setUser] = useState({ 
+  //   event_name: "", 
+  //   description: "", 
+  //   event_date: "", 
+  //   event_time: "" , 
+  //   budget: ""  
+  // });
+
+  const submitForm = e => {
+    e.preventDefault();
+    // addNewUser(user);
+    console.log(`makeEvent`);
+    console.log(newEvent);
+  };
+
+  const handleChange = e => {
+    setNewEvent({
+      ...newEvent,
       [e.target.name]: e.target.value
     });
     console.log(e.target);
@@ -30,7 +51,7 @@ const NewEventForm = props => {
           <h4 id="landingText">Use the form below to create a new event!</h4>
         </div>
         <div className="landingFormInner">
-          <form onSubmit={handleSubmit} className="">
+          <form onSubmit={event => submitForm(event)} className="">
             <label className="formLabel">
               {" "}
               Name of Event:
@@ -41,7 +62,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="Stakeholders Meeting"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -56,7 +77,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="Financial Advisory"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -72,7 +93,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="MM-DD-YY"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
               <br />
@@ -88,7 +109,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="HH:MM AM/PM"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -103,7 +124,7 @@ const NewEventForm = props => {
                 // value=
                 // value needs assignment with api post
                 placeholder="$$$"
-                onChange={handleChanges}
+                onChange={event => handleChange(event)}
                 className="formInput"
               />
             </label>
@@ -118,10 +139,19 @@ const NewEventForm = props => {
     </>
   );
 };
-{
-const mapStateToProps = state => {
-  return {};
-}
-};
 
-export default NewEventForm;
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+
+
+export default connect(
+  mapStateToProps,
+  { newEventForm }
+)(NewEventForm);
+
+
+

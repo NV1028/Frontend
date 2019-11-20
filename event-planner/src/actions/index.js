@@ -45,3 +45,20 @@ export const register = (regInfo, history) => (dispatch) => {
     .catch(err => console.log(err.res))
     dispatch({type: REGISTER_FAILURE})
 }
+
+export const NEW_EVENT_FORM_REQUEST = "NEW_EVENT_FORM_REQUEST" 
+export const NEW_EVENT_FORM_FAILURE = "NEW_EVENT_FORM_FAILURE"
+export const NEW_EVENT_FORM_SUCCESS = "NEW_EVENT_FORM_SUCCESS"
+
+export const newEventForm = (newEvent, history) => (dispatch) => {
+    dispatch({ type: NEW_EVENT_FORM_REQUEST })
+    axiosAuth()
+    .post('/api/events/', newEvent)
+    .then(res => {
+         console.log(`new Event successfully created ${res.data}`)
+         dispatch({type: NEW_EVENT_FORM_SUCCESS, payload: res.data})
+         history.push('/events')
+    })
+    .catch(err => console.log(err.res))
+    dispatch({type: REGISTER_FAILURE})
+}

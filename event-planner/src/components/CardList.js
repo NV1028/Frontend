@@ -20,16 +20,9 @@ margin-top: 50px;
 
 const CardList = (props) => {
 
-const [data, setData] = useState([]);
-
-
-
-useEffect(() => {
-
-  
-  
-}, [data]);
-
+  useEffect(() => {
+    props.fetchData()
+},[])
 
 return (
     <CardHolder>

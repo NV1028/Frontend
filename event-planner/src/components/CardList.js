@@ -26,14 +26,8 @@ const [data, setData] = useState([]);
 
 useEffect(() => {
 
-  axios
-  .get(`https://rickandmortyapi.com/api/character/`)
-  .then(response => { 
-      setData(response.data.results);
-  })
-  .catch(error => {
-   console.log(`The error was: ${error}`) 
-  })
+  
+  
 }, [data]);
 
 

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import { newEventForm } from "../actions/"
+import decode from 'jwt-decode'
+
 const NewEventForm = props => {
   // let id = parseInt(localStorage.getItem("id"));
-
+const id = props.login.userId
   const [newEvent, setNewEvent] = useState({
     event_name: "",
     description: "",
     event_date: "",
     event_time: "",
     budget: "",
-    assigned_to_user: props.userId
+    assigned_to_user: id
   });
 
   const [newUser, setUsers] = useState([
@@ -21,6 +23,11 @@ const NewEventForm = props => {
   const addNewUser = event => {
     setNewEvent([...newEvent, event]);
   };
+
+  useEffect( ()=> {
+  console.log(props)
+    
+},[])  
 
   // const [user, setUser] = useState({ 
   //   event_name: "", 

@@ -1,56 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import { newEventForm } from "../actions/"
-import decode from 'jwt-decode'
 
 const NewEventForm = props => {
-  // let id = parseInt(localStorage.getItem("id"));
-const id = props.login.userId
+
   const [newEvent, setNewEvent] = useState({
     event_name: "",
     description: "",
     event_date: "",
     event_time: "",
     budget: "",
-    assigned_to_user: id
+    assigned_to_user:null
+
   });
 
-  const [newUser, setUsers] = useState([
-    // { event_name: "one", description: "two", event_date: "three", event_time: "four" , budget: "five"  }
-    
-  ]);
-
-  const addNewUser = event => {
-    setNewEvent([...newEvent, event]);
-  };
-
-  useEffect( ()=> {
-  console.log(props)
-    
-},[])  
-
-  // const [user, setUser] = useState({ 
-  //   event_name: "", 
-  //   description: "", 
-  //   event_date: "", 
-  //   event_time: "" , 
-  //   budget: ""  
-  // });
-
-  const submitForm = e => {
-    e.preventDefault();
-    // addNewUser(user);
-    console.log(`makeEvent`);
-    console.log(newEvent);
-  };
+ 
 
   const handleChange = e => {
+    console.log(e);
     setNewEvent({
       ...newEvent,
       [e.target.name]: e.target.value
     });
-    console.log(e.target);
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const eventValues = {...newEvent, assigned_to_user:props.login.userId} 
+    console.log(eventValues)
+    };
+
+
   return (
     <>
       <div className="oboardingFormOuter">
@@ -58,7 +38,7 @@ const id = props.login.userId
           <h4 id="landingText">Use the form below to create a new event!</h4>
         </div>
         <div className="landingFormInner">
-          <form onSubmit={event => submitForm(event)} className="">
+          <form onSubmit={handleSubmit}>
             <label className="formLabel">
               {" "}
               Name of Event:

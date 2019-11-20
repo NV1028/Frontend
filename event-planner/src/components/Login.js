@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axiosAuth from "../utils/axiosAuth"
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login }  from '../actions'
+
 
 const Login = (props) => {
   const [creds, setCreds] = useState({ 
       "email": "",
       "password": ""
     });
-  const [userId, setUserId] = useState("")
 
 
   const handleChange = e => {
@@ -23,16 +22,6 @@ const Login = (props) => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(creds)
-    // axiosAuth()
-    //   .post('/api/auth/login', creds)
-    //   .then(res => {
-    //     console.log(res.data)
-    //     localStorage.setItem('token', res.data.token)
-    //     localStorage.setItem("id", res.data.userid)
-    //     setUserId(res.data.userid)
-    //     console.log(res.data)
-      // })
-      // .catch(err => console.log(err));
       props.login(creds, props.history)
       props.history.push('/events');
     };

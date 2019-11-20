@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axiosAuth from "../utils/axiosAuth";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 import { register } from "../actions"
@@ -23,14 +22,6 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(regInfo);
-    // axiosAuth()
-    //   .post("/api/auth/register", data)
-    //   .then(res => {
-    //     console.log(res.data);
-    //     localStorage.setItem("token", res.data.token);
-    //     props.history.push("/user");
-    //   })
-    //   .catch(err => console.log(err));
     props.register(regInfo, props.history)
   };
 

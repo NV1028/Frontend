@@ -19,20 +19,21 @@ margin-top: 50px;
 
 
 
-const CardList = (props) => {
 
+const CardList = (props) => {
+  const [events, setEvents] = useState([])
   useEffect(() => {
     props.fetchEvents(props.login.userId)
     console.log("events")
     console.log(props.fetchEvents.eventList)
+    setEvents(props.fetchEvents.eventList)
 },[])
 
 return (
     <CardHolder>
-      
-{/* {props.props.fetchEvents.eventList.map(info => (
-           <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id}  />
-        ))} */}
+{/* {events.map(info => (
+  <Card event_name={info.event_name} description={info.description} budget={info.budget} event_date={info.event_date} event_time={info.event_time} />
+))} */}
     </CardHolder>
   )
 }
@@ -50,3 +51,8 @@ export default connect(
   { fetchEvents }
 )(CardList);
 
+
+
+// {data.map(info => (
+//   <Card event_name={info.name} description={info.species} budget={info.status} event_date={info.gender} event_time={info.id} image={info.image} />
+// ))}

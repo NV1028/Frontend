@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux"
-import { register } from "../actions"
+import { connect } from "react-redux";
+import { register } from "../actions";
 
 const Register = props => {
   const [regInfo, setRegInfo] = useState({
@@ -22,7 +22,7 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(regInfo);
-    props.register(regInfo, props.history)
+    props.register(regInfo, props.history);
   };
 
   return (
@@ -90,12 +90,4 @@ function mapStateToProps(state) {
   };
 }
 
-
-
-export default connect(
-  mapStateToProps,
-  { register }
-)(Register);
-
-
-
+export default connect(mapStateToProps, { register })(Register);

@@ -23,14 +23,15 @@ const Login = (props) => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(creds)
-    axiosAuth()
-      .post('/api/auth/login', creds)
-      .then(res => {
-        console.log(res.data)
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem("id", res.data.userid)
-        setUserId(res.data.userid)
-        console.log(res.data)
+    // axiosAuth()
+    //   .post('/api/auth/login', creds)
+    //   .then(res => {
+    //     console.log(res.data)
+    //     localStorage.setItem('token', res.data.token)
+    //     localStorage.setItem("id", res.data.userid)
+    //     setUserId(res.data.userid)
+    //     console.log(res.data)
+        props.login(creds, props.history)
         props.history.push('/events');
       })
       .catch(err => console.log(err));
@@ -63,7 +64,7 @@ const Login = (props) => {
 
 function mapStateToProps(state) {
   return {
-
+    ...state
   };
 }
 

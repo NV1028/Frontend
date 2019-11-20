@@ -28,6 +28,7 @@ const NewEventForm = props => {
     e.preventDefault();
     const eventValues = {...newEvent, assigned_to_user:props.login.userId} 
     console.log(eventValues)
+    props.newEventForm(eventValues, props.history)
     };
 
 

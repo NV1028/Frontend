@@ -50,12 +50,13 @@ export const NEW_EVENT_FORM_REQUEST = "NEW_EVENT_FORM_REQUEST"
 export const NEW_EVENT_FORM_FAILURE = "NEW_EVENT_FORM_FAILURE"
 export const NEW_EVENT_FORM_SUCCESS = "NEW_EVENT_FORM_SUCCESS"
 
-export const newEventForm = (newEvent, history) => (dispatch) => {
+export const newEventForm = (eventValues, history) => (dispatch) => {
     dispatch({ type: NEW_EVENT_FORM_REQUEST })
     axiosAuth()
-    .post('/api/events/', newEvent)
+    .post('/api/events/', eventValues)
     .then(res => {
-         console.log(`new Event successfully created ${res.data}`)
+         console.log(`new Event successfully created`)
+         console.log(res.data)
          dispatch({type: NEW_EVENT_FORM_SUCCESS, payload: res.data})
          history.push('/events')
     })

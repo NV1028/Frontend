@@ -9,16 +9,14 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { reducer as loginReducer } from "./reducers/login";
 import { reducer as registerReducer } from "./reducers/register";
-import { reducer as eventsReducer } from "./reducers/events";
 import { reducer as newEventFormReducer } from "./reducers/newEventForm";
 import { reducer as fetchEventsReducer } from "./reducers/fetchEvents";
 
 const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
-  events: eventsReducer,
   newEventForm: newEventFormReducer,
-  fetchEvents: fetchEventsReducer
+  events: fetchEventsReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

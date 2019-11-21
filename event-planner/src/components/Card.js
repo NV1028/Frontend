@@ -73,7 +73,7 @@ const Card = props => {
           Platon o de Isocrates.
         </h4>
       </Description>
-      <img src={props.image} alt="" />
+      <img src={props.description} alt="" />
     </Cards>
   );
 };

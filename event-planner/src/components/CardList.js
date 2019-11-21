@@ -7,11 +7,11 @@ import { fetchEvents } from "../actions";
 const CardHolder = styled.div`
   display: flex;
   flex-direction: row;
-  width: 1200px;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 100px;
 `;
 
 const CardList = props => {

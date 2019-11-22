@@ -7,23 +7,14 @@ const LandingPage = props => {
       <h1>Welcome To Corporate Event Planner </h1>
       <div className="landingPageButtons">
         <div>
-
-        <NavLink
-  to="register" id="login-button" className="submit-button"
-  
->
-Signup
-</NavLink>
-<br></br>
-<br></br>
-<NavLink
-  to="login" id="login-button" className="submit-button"
-  
->
-Login
-</NavLink>
-
-          
+          <NavLink to="register" id="login-button" className="submit-button">
+            Signup
+          </NavLink>
+          <br></br>
+          <br></br>
+          <NavLink to="login" id="login-button" className="submit-button">
+            Login
+          </NavLink>
         </div>
       </div>
     </div>

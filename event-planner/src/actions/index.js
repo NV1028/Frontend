@@ -70,7 +70,7 @@ export const fetchUser = id => dispatch => {
     });
 };
 
-// ACTION POSTS A NEW EVENT TO API
+// ACTION POSTS A NEW EVENT TO API THOUGH THE API IS ONLY RETURNING AN EMPTY STRING
 export const NEW_EVENT_FORM_REQUEST = "NEW_EVENT_FORM_REQUEST";
 export const NEW_EVENT_FORM_FAILURE = "NEW_EVENT_FORM_FAILURE";
 export const NEW_EVENT_FORM_SUCCESS = "NEW_EVENT_FORM_SUCCESS";
@@ -114,18 +114,17 @@ export const DELETE_EVENT_REQUEST = "DELETE_EVENT_REQUEST";
 export const DELETE_EVENT_FAILURE = "DELETE_EVENT_FAILURE";
 export const DELETE_EVENT_SUCCESS = "DELETE_EVENT_SUCCESS";
 
-// export const deleteEvent = eventId => dispatch => {
-//   dispatch({ type: DELETE_EVENT_REQUEST });
-//   axiosAuth()
-//   .delete(`/api/events/${eventId}`);
-//   .then(res => {
-//     console.log(res.data)
-//     dispatch({type: DELETE_EVENT_SUCCESS})
-//   })
-//   .catch(err => {
-//     console.log(err.data)
-//     dispatch({ type: DELETE_EVENT_FAILURE})
-//   }
-
-//   )
-//   }
+export const deleteEvent = (eventId, history) => dispatch => {
+  dispatch({ type: DELETE_EVENT_REQUEST });
+  axiosAuth()
+    .delete(`/api/events/${eventId}`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: DELETE_EVENT_SUCCESS });
+      history.push("/events")
+    })
+    .catch(err => {
+      console.log(err.data);
+      dispatch({ type: DELETE_EVENT_FAILURE });
+    });
+};

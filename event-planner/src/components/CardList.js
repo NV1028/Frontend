@@ -3,7 +3,7 @@ import Card from "./Card";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { fetchEvents, fetchUser } from "../actions";
-
+import { Link } from "react-router-dom"
 const CardHolder = styled.div`
   display: flex;
   flex-direction: row;
@@ -16,9 +16,9 @@ const CardHolder = styled.div`
 
 const CardList = props => {
   useEffect(() => {
-    props.fetchUser(props.login.userId)
+    props.fetchUser(props.login.userId);
     props.fetchEvents(props.login.userId);
-    console.log(props.fetchUser(props.login.userId))
+    console.log(props.fetchUser(props.login.userId));
   }, []);
 
   return (
@@ -26,6 +26,8 @@ const CardList = props => {
       {props.events.eventsList &&
         props.events.eventsList.map(info => (
           <Card
+            key={info.id}
+            eventId={info.id}
             event_name={info.event_name}
             description={info.description}
             budget={info.budget}
@@ -38,12 +40,9 @@ const CardList = props => {
 };
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     ...state
   };
 }
 
-
 export default connect(mapStateToProps, { fetchEvents, fetchUser })(CardList);
-

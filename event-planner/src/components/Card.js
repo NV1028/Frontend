@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { UnstyledButton } from "@snowcoders/react-unstyled-button";
 import "@snowcoders/react-unstyled-button/styles.css";
 
+import { deleteEvent } from "../actions";
 
 const Cards = styled.div`
   background: #fff;
@@ -58,7 +60,6 @@ const When = styled.div`
   align-items: center;
 `;
 
-
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
@@ -80,11 +81,7 @@ const Budget = styled.div`
   margin-left: 5px;
 `;
 
-
-const BudgTit = styled.div`
-  
-  
-`;
+const BudgTit = styled.div``;
 
 const BudgetStuff = styled.div`
   display: flex;
@@ -101,36 +98,45 @@ const Icons = styled.div`
   margin-top: 30px;
 `;
 
-
-
-
-
 const Card = props => {
   return (
     <Cards>
       <Divide>
         <Tittle>
-          <h2>{props.event_name}</h2>
+          <h2>
+            {props.event_name} {props.eventId}
+          </h2>
         </Tittle>{" "}
         <When>
-        <DateTime>Date: {props.event_date}</DateTime>
-        <DateTime>Time: {props.event_time}</DateTime>
+          <DateTime>Date: {props.event_date}</DateTime>
+          <DateTime>Time: {props.event_time}</DateTime>
         </When>
       </Divide>
       <Description>
-        <h4>
-          {props.description}
-        </h4>
+        <h4>{props.description}</h4>
       </Description>
       <Bottom>
         <Icons>
-          <UnstyledButton><FaEdit/></UnstyledButton>
-          <UnstyledButton><FaTrash /></UnstyledButton>
+          <UnstyledButton>
+            <FaEdit />
+          </UnstyledButton>
+          <UnstyledButton>
+            <FaTrash onClick={() => props.deleteEvent(props.eventId, props.history)} />
+          </UnstyledButton>
         </Icons>
-        <BudgetStuff><BudgTit>Budget: </BudgTit><Budget>{props.budget}</Budget></BudgetStuff>
+        <BudgetStuff>
+          <BudgTit>Budget: </BudgTit>
+          <Budget>{props.budget}</Budget>
+        </BudgetStuff>
       </Bottom>
     </Cards>
   );
 };
 
-export default Card;
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+
+export default connect(mapStateToProps, { deleteEvent })(Card);

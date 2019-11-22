@@ -26,14 +26,18 @@ const Login = props => {
 
   return (
     <>
-      <h3>Please login or register</h3>
+    <div className="FormCenter">
+      <h3>Please Login or Register</h3>
       <div>
-        <Link to={"/register"}>register</Link>
+        <Link to={"/register"}>Register</Link>
       </div>
-      <form onSubmit={handleSubmit}>
+      <br>
+      </br>
+      <form className="RegisterForm" onSubmit={handleSubmit}>
         <input
           name="email"
           type="email"
+          className="formInput"
           placeholder="Email"
           value={creds.email}
           onChange={e => handleChange(e)}
@@ -41,12 +45,16 @@ const Login = props => {
         <input
           name="password"
           type="text"
+          className="formInput"
           placeholder="Password"
           value={creds.password}
           onChange={e => handleChange(e)}
         />
-        <button type="submit">Log In</button>
+        <br>
+        </br>
+        <button id="login-button" className="submit-button" type="submit">Log In</button>
       </form>
+      </div>
     </>
   );
 };

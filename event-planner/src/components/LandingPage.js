@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const LandingPage = props => {
   return (
@@ -7,14 +7,23 @@ const LandingPage = props => {
       <h1>Welcome To Corporate Event Planner </h1>
       <div className="landingPageButtons">
         <div>
-          <Link to="register">
-            <button class="signup">Signup</button>
-          </Link>
-        </div>
-        <div>
-          <Link to="login">
-            <button class="login">login</button>
-          </Link>
+
+        <NavLink
+  to="register" id="login-button" className="submit-button"
+  
+>
+Signup
+</NavLink>
+<br></br>
+<br></br>
+<NavLink
+  to="login" id="login-button" className="submit-button"
+  
+>
+Login
+</NavLink>
+
+          
         </div>
       </div>
     </div>

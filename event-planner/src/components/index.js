@@ -7,7 +7,7 @@ import NewEventForm from "./NewEventForm";
 import Register from "./Register";
 import LandingPage from "./LandingPage";
 import PrivateRoute from "./PrivateRoute";
-
+import EditEvent from "./EditEvent"
 export {
   CardList,
   Card,
@@ -17,5 +17,6 @@ export {
   Login,
   Register,
   LandingPage,
-  PrivateRoute
+  PrivateRoute,
+  EditEvent
 };

@@ -90,6 +90,26 @@ export const newEventForm = (eventValues, history) => dispatch => {
       dispatch({ type: NEW_EVENT_FORM_FAILURE });
     });
 };
+
+// ACTION FETCHES SINGLE EVENT
+export const SINGLE_EVENT_FETCH_REQUEST = "SINGLE_EVENT_FETCH_REQUEST";
+export const SINGLE_EVENT_FETCH_FAILURE = "SINGLE_EVENT_FETCH_FAILURE";
+export const SINGLE_EVENT_FETCH_SUCCESS = "SINGLE_EVENT_FETCH_SUCCESS";
+
+export const fetchSingleEvent = id => dispatch => {
+  dispatch({ type: SINGLE_EVENT_FETCH_REQUEST });
+  axiosAuth()
+    .get(`/api/events/${id}`)
+    .then(res => {
+      console.log(res.data.single);
+      dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err.res);
+      dispatch({ type: SINGLE_EVENT_FETCH_FAILURE });
+    });
+};
+
 // ACTION FETCHES EVENTS DATA FROM THE API
 export const EVENTS_FETCH_REQUEST = "EVENTS_FETCH_REQUEST";
 export const EVENTS_FETCH_FAILURE = "EVENTS_FETCH_FAILURE";
@@ -128,3 +148,26 @@ export const deleteEvent = (eventId, history) => dispatch => {
       dispatch({ type: DELETE_EVENT_FAILURE });
     });
 };
+
+
+// ACTION UPDATES AN EXISTING EVENT
+export const UPDATE_EVENT_REQUEST = "UPDATE_EVENT_REQUEST";
+export const UPDTATE_EVENT_FAILURE = "UPDTATE_EVENT_FAILURE";
+export const UPDATE_EVENT_SUCCESS = "UPDATE_EVENT_SUCCESS";
+
+export const updateEvent = (eventId, history) => dispatch => {
+  dispatch({ type: UPDATE_EVENT_REQUEST });
+  axiosAuth() 
+    .put(`/api/events/${eventId}`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: UPDTATE_EVENT_FAILURE });
+      history.push("/events")
+    })
+    .catch(err => {
+      console.log(err.data);
+      dispatch({ type: DELETE_EVENT_FAILURE });
+    });
+};
+
+

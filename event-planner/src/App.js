@@ -13,7 +13,8 @@ import {
   Footer,
   CardList,
   NewEventForm,
-  PrivateRoute
+  PrivateRoute,
+  EditEvent
 } from "./components";
 
 const GlobalStyles = createGlobalStyle`
@@ -44,6 +45,8 @@ function App(props) {
 
         <PrivateRoute path="/events" component={CardList} />
         <PrivateRoute path="/newevent" component={NewEventForm} />
+        <PrivateRoute path="/editevent" component={EditEvent} />
+
       </Switch>
       <Footer />
     </div>

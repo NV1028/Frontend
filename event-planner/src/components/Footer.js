@@ -16,6 +16,8 @@ const Foot = styled.div`
   font-weight: 400;
   height: 130px;
   margin-top: 100px;
+  position: absolute;
+  bottom: 0;
 `;
 
 const Order = styled.div`

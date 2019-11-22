@@ -22,8 +22,24 @@ const NewEventForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const eventValues = { ...newEvent, assigned_to_user: props.login.userId };
     console.log(eventValues);
+    if(eventValues.event_name === ""){
+      return alert("Please enter an event name");
+    };
+    if(eventValues.description === ""){
+      return alert("Please enter a description");
+    };
+    if(eventValues.event_date === ""){
+      return alert("Please enter a date");
+    };
+    if(eventValues.event_time === ""){
+      return alert("Please enter a time");
+    };
+    if(eventValues.budget === ""){
+      return alert("Please enter a budget");
+    };
     props.newEventForm(eventValues, props.history);
   };
 

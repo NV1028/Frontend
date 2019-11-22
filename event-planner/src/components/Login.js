@@ -19,9 +19,16 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if(creds.email === ""){
+      return alert("Please enter an email address");
+    };
+    if(creds.password === ""){
+      return alert("Please enter a password");
+    };
     console.log(creds);
     props.login(creds, props.history);
     props.history.push("/events");
+  
   };
 
   return (

@@ -19,8 +19,7 @@ const Nava = styled.div`
   font-size: 0.8rem;
   margin-right: 20px;
   margin-left: 80px;
-  font-weight: 500;
-
+  
   &:hover {
     background-color: fff;
     border-bottom: 1px solid #3dade2;

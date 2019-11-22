@@ -1,5 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import { UnstyledButton } from "@snowcoders/react-unstyled-button";
+import "@snowcoders/react-unstyled-button/styles.css";
+
 
 const Cards = styled.div`
   background: #fff;
@@ -8,9 +12,10 @@ const Cards = styled.div`
   display: inline-block;
   margin-bottom: 32px;
   margin-right: 30px;
-  height: 250px;
+  height: 280px;
   vertical-align: top;
   width: 460px;
+  color: #1f2533;
 `;
 
 const Divide = styled.div`
@@ -34,7 +39,7 @@ const Tittle = styled.div`
 
 const Description = styled.div`
   margin: 0 auto;
-  color: grey;
+  color: #ff80f7;
   font-size: 0.8rem;
   width: 180px;
   width: 85%;
@@ -44,13 +49,20 @@ const Description = styled.div`
 const When = styled.div`
   font-size: 0.8em;
   margin-right: 20px;
-  font-weigth: 500;
+  font-weigth: 600;
   width: 120px;
   height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+
+const Bottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 `;
 
 const DateTime = styled.div`
@@ -61,12 +73,36 @@ const DateTime = styled.div`
 `;
 
 const Budget = styled.div`
-  float: right;
   margin-right: 30px;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-top: 40px;
+  color: #51e47d
+  margin-left: 5px;
 `;
+
+
+const BudgTit = styled.div`
+  
+  
+`;
+
+const BudgetStuff = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+  font-weight: 600;
+`;
+
+const Icons = styled.div`
+  width: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: 30px;
+`;
+
+
+
 
 
 const Card = props => {
@@ -83,11 +119,16 @@ const Card = props => {
       </Divide>
       <Description>
         <h4>
-          Aristoteles era un filosofo muy respetado en sus tiempos. Discipulo de
-          Platon o de Isocrates.
+          {props.description}
         </h4>
       </Description>
-      <Budget>Budget: {props.budget}</Budget>
+      <Bottom>
+        <Icons>
+          <UnstyledButton><FaEdit/></UnstyledButton>
+          <UnstyledButton><FaTrash /></UnstyledButton>
+        </Icons>
+        <BudgetStuff><BudgTit>Budget: </BudgTit><Budget>{props.budget}</Budget></BudgetStuff>
+      </Bottom>
     </Cards>
   );
 };

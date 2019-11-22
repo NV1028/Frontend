@@ -22,6 +22,18 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(regInfo);
+    if(regInfo.email === ""){
+      return alert("Please enter an email address");
+    };
+    if(regInfo.password === ""){
+      return alert("Please enter a password");
+    };
+    if(regInfo.role === ""){
+      return alert("Please enter a role");
+    };
+    if(regInfo.company === ""){
+      return alert("Please enter a company");
+    };
     props.register(regInfo, props.history);
   };
 

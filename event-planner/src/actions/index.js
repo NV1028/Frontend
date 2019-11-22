@@ -1,5 +1,6 @@
 import axiosAuth from "../utils/axiosAuth";
 
+// ACTION LOGS IN A USER
 export const LOGIN_REQUEST = "LOGIN_START";
 export const LOGIN_FAILURE = "REQUEST_FAILURE";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -19,6 +20,7 @@ export const login = (creds, history) => dispatch => {
   dispatch({ type: LOGIN_FAILURE });
 };
 
+// ACTION RETURNS A USER ID AFTER AUTHENTICAION
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 
 export const setUser = id => {
@@ -28,6 +30,7 @@ export const setUser = id => {
   };
 };
 
+// ACTION REGISTERS A NEW USER
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_FAILURE = "REQUEST_FAILURE";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -46,6 +49,12 @@ export const register = (regInfo, history) => dispatch => {
   dispatch({ type: REGISTER_FAILURE });
 };
 
+// ACTION FETCHES USER INFORMATION GIVEN A USER ID
+export const USER_FETCH_REQUEST = "USER_FETCH_REQUEST"
+export const USER_FETCH_FAILURE = "USER_FETCH_FAILURE"
+export const USER_FETCH_SUCCESS = "USER_FETCH_SUCCESS"
+
+// ACTION POSTS A NEW EVENT TO API
 export const NEW_EVENT_FORM_REQUEST = "NEW_EVENT_FORM_REQUEST";
 export const NEW_EVENT_FORM_FAILURE = "NEW_EVENT_FORM_FAILURE";
 export const NEW_EVENT_FORM_SUCCESS = "NEW_EVENT_FORM_SUCCESS";
@@ -63,15 +72,13 @@ export const newEventForm = (eventValues, history) => dispatch => {
     .catch(err => console.log(err.res));
   dispatch({ type: REGISTER_FAILURE });
 };
-
+// ACTION FETCHES EVENTS DATA FROM THE API
 export const EVENTS_FETCH_REQUEST = "EVENTS_FETCH_REQUEST";
 export const EVENTS_FETCH_FAILURE = "EVENTS_FETCH_FAILURE";
 export const EVENTS_FETCH_SUCCESS = "EVENTS_FETCH_SUCCESS";
 
 export const fetchEvents = id => dispatch => {
   dispatch({ type: EVENTS_FETCH_REQUEST });
-  // let id = parseInt(localStorage.getItem('id'))
-  // const id = props.login.userId
   axiosAuth()
     .get(`/api/events/user/${id}`)
     .then(res => {
@@ -80,4 +87,13 @@ export const fetchEvents = id => dispatch => {
     })
     .catch(err => console.log(err.res));
   dispatch({ type: EVENTS_FETCH_FAILURE });
+};
+// ACTION DELETES A SINGLE EVENT FROM THE API
+export const DELETE_EVENT_REQUEST = "DELETE_EVENT_REQUEST";
+export const DELETE_EVENT_FAILURE = "DELETE_EVENT_FAILURE";
+export const DELETE_EVENT_SUCCESS = "DELETE_EVENT_SUCCESS";
+
+export const deleteEvent = eventId => dispatch => {
+  dispatch({ type: DELETE_EVENT_REQUEST });
+  axiosAuth().get(`/events`);
 };

@@ -13,13 +13,18 @@ import { reducer as newEventFormReducer } from "./reducers/newEventForm";
 import { reducer as fetchEventsReducer } from "./reducers/fetchEvents";
 import { reducer as fetchUserReducer } from "./reducers/fetchUser";
 import { reducer as deleteEventReducer } from "./reducers/deleteEvent";
+import { reducer as fetchSingleEventReducer } from "./reducers/fetchSingleEvent";
+import { reducer as editSingleEventReducer } from "./reducers/editSingleEvent";
+
 const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
   newEventForm: newEventFormReducer,
   events: fetchEventsReducer,
   fetchUser: fetchUserReducer,
-  deleteEvent: deleteEventReducer
+  deleteEvent: deleteEventReducer,
+  fetchSingleEvent: fetchSingleEventReducer,
+  editSingleEvent: editSingleEventReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

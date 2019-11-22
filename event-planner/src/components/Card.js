@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { UnstyledButton } from "@snowcoders/react-unstyled-button";
 import "@snowcoders/react-unstyled-button/styles.css";
-
+import { Link } from "react-router-dom"
 import { deleteEvent } from "../actions";
 
 const Cards = styled.div`
@@ -118,7 +118,9 @@ const Card = props => {
       <Bottom>
         <Icons>
           <UnstyledButton>
+            <Link to="/editevent">
             <FaEdit />
+            </Link>
           </UnstyledButton>
           <UnstyledButton>
             <FaTrash onClick={() => props.deleteEvent(props.eventId, props.history)} />

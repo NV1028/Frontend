@@ -12,7 +12,8 @@ import {
   LandingPage,
   Footer,
   CardList,
-  NewEventForm
+  NewEventForm,
+  PrivateRoute
 } from "./components";
 
 const GlobalStyles = createGlobalStyle`
@@ -40,8 +41,9 @@ function App(props) {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/events" component={CardList} />
-        <Route exact path="/newevent" component={NewEventForm} />
+
+        <PrivateRoute path="/events" component={CardList} />
+        <PrivateRoute path="/newevent" component={NewEventForm} />
       </Switch>
       <Footer />
     </div>

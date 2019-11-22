@@ -6,6 +6,7 @@ import Nav from "./Nav";
 import NewEventForm from "./NewEventForm";
 import Register from "./Register";
 import LandingPage from "./LandingPage";
+import PrivateRoute from "./PrivateRoute";
 
 export {
   CardList,
@@ -15,5 +16,6 @@ export {
   Nav,
   Login,
   Register,
-  LandingPage
+  LandingPage,
+  PrivateRoute
 };

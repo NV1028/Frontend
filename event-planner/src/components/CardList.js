@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchEvents } from "../actions";
+import { fetchEvents, fetchUser } from "../actions";
 
 const CardHolder = styled.div`
   display: flex;
@@ -16,7 +16,9 @@ const CardHolder = styled.div`
 
 const CardList = props => {
   useEffect(() => {
+    props.fetchUser(props.login.userId)
     props.fetchEvents(props.login.userId);
+    console.log(props.fetchUser(props.login.userId))
   }, []);
 
   return (
@@ -43,5 +45,5 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { fetchEvents })(CardList);
+export default connect(mapStateToProps, { fetchEvents, fetchUser })(CardList);
 

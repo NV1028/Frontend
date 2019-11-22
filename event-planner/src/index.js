@@ -11,12 +11,15 @@ import { reducer as loginReducer } from "./reducers/login";
 import { reducer as registerReducer } from "./reducers/register";
 import { reducer as newEventFormReducer } from "./reducers/newEventForm";
 import { reducer as fetchEventsReducer } from "./reducers/fetchEvents";
-
+import { reducer as fetchUserReducer } from "./reducers/fetchUser";
+import { reducer as deleteEventReducer } from "./reducers/deleteEvent";
 const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
   newEventForm: newEventFormReducer,
-  events: fetchEventsReducer
+  events: fetchEventsReducer,
+  fetchUser: fetchUserReducer,
+  deleteEvent: deleteEventReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

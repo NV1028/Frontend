@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { UnstyledButton } from "@snowcoders/react-unstyled-button";
 import "@snowcoders/react-unstyled-button/styles.css";
-import { Link } from "react-router-dom"
-import { deleteEvent } from "../actions";
+
+import { deleteEvent, fetchEvents } from "../actions";
 
 const Cards = styled.div`
   background: #fff;
@@ -98,13 +98,18 @@ const Icons = styled.div`
   margin-top: 30px;
 `;
 
+
+
+
 const Card = props => {
+
+ 
   return (
     <Cards>
       <Divide>
         <Tittle>
           <h2>
-            {props.event_name} {props.eventId}
+            {props.event_name} 
           </h2>
         </Tittle>{" "}
         <When>
@@ -118,13 +123,13 @@ const Card = props => {
       <Bottom>
         <Icons>
           <UnstyledButton>
-            <Link to="/editevent">
             <FaEdit />
-            </Link>
           </UnstyledButton>
           <UnstyledButton>
-            <FaTrash onClick={() => props.deleteEvent(props.eventId, props.history)} />
-          </UnstyledButton>
+            <FaTrash onClick={
+              () => props.deleteEvent(props.eventId, props.history}>
+                <FaTrash/>
+          <UnstyledButton/>
         </Icons>
         <BudgetStuff>
           <BudgTit>Budget: </BudgTit>
@@ -138,7 +143,8 @@ const Card = props => {
 function mapStateToProps(state) {
   return {
     ...state
+  });
   };
 }
 
-export default connect(mapStateToProps, { deleteEvent })(Card);
+export default connect(mapStateToProps, { deleteEvent, fetchEvents })(Card);

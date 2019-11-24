@@ -13,8 +13,10 @@ const EditEvent = props => {
   });
 
   useEffect(() => {
-    props.fetchSingleEvent(props.login.userId);
-    console.log(props.fetchSingleEvent(props.login.userId));
+    // props.fetchSingleEvent(props.login.userId);
+    // console.log(props.fetchSingleEvent(props.login.userId));
+    console.log(`im a single event inside useEffect function`)
+    console.log(props.fetchSingleEvent.fetchSingleEvent)
   }, []);
 
   const handleChange = e => {

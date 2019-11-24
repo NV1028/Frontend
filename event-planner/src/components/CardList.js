@@ -16,10 +16,9 @@ const CardHolder = styled.div`
 
 const CardList = props => {
   useEffect(() => {
-    props.fetchUser(props.login.userId);
+    // props.fetchUser(props.login.userId);
     props.fetchEvents(props.login.userId);
-    console.log(props.fetchUser(props.login.userId));
-  }, []);
+  }, [props.deleteEvent]);
 
   return (
     <CardHolder>

@@ -54,7 +54,8 @@ function App(props) {
 }
 
 const mapStateToProps = state => ({
-  userId: state.login.userId
+  userId: state.login.userId,
+  log: "helloWorld"
 });
 
 export default connect(mapStateToProps, { setUser })(App);

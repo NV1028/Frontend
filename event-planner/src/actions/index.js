@@ -141,6 +141,8 @@ export const deleteEvent = (eventId, history) => dispatch => {
     .then(res => {
       console.log(res);
       dispatch({ type: DELETE_EVENT_SUCCESS });
+      // dispatch({ type: EVENTS_FETCH_REQUEST });
+
       history.push("/events")
     })
     .catch(err => {
@@ -151,22 +153,22 @@ export const deleteEvent = (eventId, history) => dispatch => {
 
 
 // ACTION UPDATES AN EXISTING EVENT
-export const UPDATE_EVENT_REQUEST = "UPDATE_EVENT_REQUEST";
-export const UPDTATE_EVENT_FAILURE = "UPDTATE_EVENT_FAILURE";
-export const UPDATE_EVENT_SUCCESS = "UPDATE_EVENT_SUCCESS";
+export const EDIT_EVENT_REQUEST = "EDIT_EVENT_REQUEST";
+export const EDIT_EVENT_FAILURE = "EDIT_EVENT_FAILURE";
+export const EDIT_EVENT_SUCCESS = "EDIT_EVENT_SUCCESS";
 
-export const updateEvent = (eventId, history) => dispatch => {
-  dispatch({ type: UPDATE_EVENT_REQUEST });
+export const editEvent = (eventId, history) => dispatch => {
+  dispatch({ type: EDIT_EVENT_REQUEST });
   axiosAuth() 
     .put(`/api/events/${eventId}`)
     .then(res => {
       console.log(res);
-      dispatch({ type: UPDTATE_EVENT_FAILURE });
+      dispatch({ type: EDIT_EVENT_FAILURE });
       history.push("/events")
     })
     .catch(err => {
       console.log(err.data);
-      dispatch({ type: DELETE_EVENT_FAILURE });
+      dispatch({ type: EDIT_EVENT_FAILURE });
     });
 };
 

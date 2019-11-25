@@ -91,11 +91,13 @@ const BudgetStuff = styled.div`
 `;
 
 const Icons = styled.div`
+  text-decoration: none;
   width: 40px;
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
   margin-top: 30px;
+  color: #1f2533;
 `;
 
 const Card = props => {
@@ -104,7 +106,7 @@ const Card = props => {
       <Divide>
         <Tittle>
           <h2>
-            {props.event_name} {props.eventId}
+            {props.event_name}
           </h2>
         </Tittle>{" "}
         <When>

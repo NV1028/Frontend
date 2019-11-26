@@ -101,8 +101,9 @@ export const fetchSingleEvent = eventId => dispatch => {
   axiosAuth()
     .get(`/api/events/${eventId}`)
     .then(res => {
-      console.log(res.data);
-      dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data });
+      console.log(`this is the fetchEvent console log`)
+      console.log(res.data[0]);
+      dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data[0] });
     })
     .catch(err => {
       console.log(err.res);

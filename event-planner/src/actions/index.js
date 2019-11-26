@@ -96,13 +96,14 @@ export const SINGLE_EVENT_FETCH_REQUEST = "SINGLE_EVENT_FETCH_REQUEST";
 export const SINGLE_EVENT_FETCH_FAILURE = "SINGLE_EVENT_FETCH_FAILURE";
 export const SINGLE_EVENT_FETCH_SUCCESS = "SINGLE_EVENT_FETCH_SUCCESS";
 
-export const fetchSingleEvent = id => dispatch => {
+export const fetchSingleEvent = eventId => dispatch => {
   dispatch({ type: SINGLE_EVENT_FETCH_REQUEST });
   axiosAuth()
-    .get(`/api/events/${id}`)
+    .get(`/api/events/${eventId}`)
     .then(res => {
-      console.log(res.data.single);
-      dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data });
+      console.log(`this is the fetchEvent console log`)
+      console.log(res.data[0]);
+      dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data[0] });
     })
     .catch(err => {
       console.log(err.res);

@@ -7,7 +7,14 @@ import {
 const initialState = {
   isLoggedIn: true,
   isFetchingEvents: false,
-  singleEvent: {}
+  singleEvent:{  
+  // event_name: "",
+  // description: "",
+  // event_date: "",
+  // event_time: "",
+  // budget: "",
+  // assigned_to_user: null
+  }
 };
 
 export const reducer = (state = initialState, action) => {

@@ -5,7 +5,8 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { UnstyledButton } from "@snowcoders/react-unstyled-button";
 import "@snowcoders/react-unstyled-button/styles.css";
 import { Link } from "react-router-dom"
-import { deleteEvent } from "../actions";
+import { deleteEvent, fetchSingleEvent } from "../actions";
+
 
 const Cards = styled.div`
   background: #fff;
@@ -121,7 +122,7 @@ const Card = props => {
         <Icons>
           <UnstyledButton>
             <Link to="/editevent">
-            <FaEdit />
+            <FaEdit onClick={() => props.fetchSingleEvent(props.eventId, props.history)}/>
             </Link>
           </UnstyledButton>
           <UnstyledButton>
@@ -143,4 +144,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { deleteEvent })(Card);
+export default connect(mapStateToProps, { deleteEvent, fetchSingleEvent })(Card);

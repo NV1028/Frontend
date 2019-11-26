@@ -3,24 +3,32 @@ import { connect } from "react-redux";
 import { fetchSingleEvent, editEvent } from "../actions/";
 
 const EditEvent = props => {
-  const [newEvent, setNewEvent] = useState({
-    event_name: "",
-    description: "",
-    event_date: "",
-    event_time: "",
-    budget: "",
-    assigned_to_user: null
+  const [editValues, setEditValues]   = useState({
+    event_name: props.fetchASingleEvent.singleEvent.event_name,
+    description: props.fetchASingleEvent.singleEvent.description,
+    event_date: props.fetchASingleEvent.singleEvent.date,
+    event_time: props.fetchASingleEvent.event_time,
+    budget: props.fetchASingleEvent.budget,
+    assigned_to_user: props.fetchASingleEvent.singleEvent.assigned_to_user
   });
-
   useEffect(() => {
-    props.fetchSingleEvent(props.login.userId);
-    console.log(props.fetchSingleEvent(props.login.userId));
+
+    console.log(`-----console.log of singleEvent Object-----`)
+    console.log(props.fetchASingleEvent.singleEvent)
+    console.log(`-----console.log of singleEvent Object-----`)
+setEditValues(
+  props.fetchASingleEvent.singleEvent
+)
+console.log(`-----console.log of editValues Object-----`)
+console.log(editValues)
+console.log(`-----console.log of editValues Object-----`)
+
   }, []);
 
   const handleChange = e => {
     console.log(e);
-    setNewEvent({
-      ...newEvent,
+    setEditValues({
+      ...editValues,
       [e.target.name]: e.target.value
     });
   };
@@ -28,7 +36,7 @@ const EditEvent = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const eventValues = { ...newEvent, assigned_to_user: props.login.userId };
+    const eventValues = { ...editValues};
     console.log(eventValues);
     if(eventValues.event_name === ""){
       return alert("Please enter an event name");
@@ -45,7 +53,6 @@ const EditEvent = props => {
     if(eventValues.budget === ""){
       return alert("Please enter a budget");
     };
-    props.newEventForm(eventValues, props.history);
   };
 
   return (

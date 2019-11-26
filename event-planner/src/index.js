@@ -13,7 +13,7 @@ import { reducer as newEventFormReducer } from "./reducers/newEventForm";
 import { reducer as fetchEventsReducer } from "./reducers/fetchEvents";
 import { reducer as fetchUserReducer } from "./reducers/fetchUser";
 import { reducer as deleteEventReducer } from "./reducers/deleteEvent";
-import { reducer as fetchSingleEventReducer } from "./reducers/fetchSingleEvent";
+import { reducer as fetchASingleEventReducer } from "./reducers/fetchASingleEvent";
 import { reducer as editSingleEventReducer } from "./reducers/editSingleEvent";
 
 const rootReducer = combineReducers({
@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
   events: fetchEventsReducer,
   fetchUser: fetchUserReducer,
   deleteEvent: deleteEventReducer,
-  fetchSingleEvent: fetchSingleEventReducer,
+  fetchASingleEvent: fetchASingleEventReducer,
   editSingleEvent: editSingleEventReducer
 });
 

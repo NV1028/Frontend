@@ -119,7 +119,6 @@ const NewEventForm = props => {
             </label>
             <br />
             <button id="login-button" className="submit-button" type="submit">
-              {/* button above needs onClick={} */}
               Submit
             </button>
           </form>

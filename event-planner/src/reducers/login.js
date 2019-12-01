@@ -8,7 +8,8 @@ import {
 const initialState = {
   userId: null,
   isFetching: false,
-  isLoggedIn: false
+  isLoggedIn: false,
+  loginMessage: ""
 };
 
 export const reducer = (state = initialState, action) => {
@@ -28,7 +29,8 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         isLoggedIn: true,
-        userId: action.payload
+        userId: action.payload.userid,
+        loginMessage: action.payload.message
       };
     case SET_AUTHED_USER:
       return {

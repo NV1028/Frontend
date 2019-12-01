@@ -10,9 +10,9 @@ export const login = (creds, history) => dispatch => {
   axiosAuth()
     .post("/api/auth/login", creds)
     .then(res => {
-      // console.log(res.data.message);
+      console.log(res.data.message);
       localStorage.setItem("token", res.data.token);
-      dispatch({ type: LOGIN_SUCCESS, payload: res.data.userid });
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       history.push("/events");
     })
     .catch(err => {
@@ -52,6 +52,7 @@ export const register = (regInfo, history) => dispatch => {
 };
 
 // ACTION FETCHES USER INFORMATION GIVEN A USER ID
+// THIS END POINT RETURNS ONLY AN EMPTY STRING.  
 export const USER_FETCH_REQUEST = "USER_FETCH_REQUEST";
 export const USER_FETCH_FAILURE = "USER_FETCH_FAILURE";
 export const USER_FETCH_SUCCESS = "USER_FETCH_SUCCESS";
@@ -101,8 +102,6 @@ export const fetchSingleEvent = eventId => dispatch => {
   axiosAuth()
     .get(`/api/events/${eventId}`)
     .then(res => {
-      console.log(`this is the fetchEvent console log`)
-      console.log(res.data[0]);
       dispatch({ type: SINGLE_EVENT_FETCH_SUCCESS, payload: res.data[0] });
     })
     .catch(err => {
@@ -142,8 +141,6 @@ export const deleteEvent = (eventId, history) => dispatch => {
     .then(res => {
       console.log(res);
       dispatch({ type: DELETE_EVENT_SUCCESS });
-      // dispatch({ type: EVENTS_FETCH_REQUEST });
-
       history.push("/events")
     })
     .catch(err => {
@@ -158,10 +155,10 @@ export const EDIT_EVENT_REQUEST = "EDIT_EVENT_REQUEST";
 export const EDIT_EVENT_FAILURE = "EDIT_EVENT_FAILURE";
 export const EDIT_EVENT_SUCCESS = "EDIT_EVENT_SUCCESS";
 
-export const editEvent = (eventId, history) => dispatch => {
+export const editEvent = (eventValues, eventId, history) => dispatch => {
   dispatch({ type: EDIT_EVENT_REQUEST });
   axiosAuth() 
-    .put(`/api/events/${eventId}`)
+    .put(`/api/events/${eventId}`, eventValues)
     .then(res => {
       console.log(res);
       dispatch({ type: EDIT_EVENT_FAILURE });

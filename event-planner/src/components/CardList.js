@@ -21,6 +21,8 @@ const CardList = props => {
   }, [props.deleteEvent]);
 
   return (
+    <div> 
+      <div>{props.login.loginMessage}</div> 
     <CardHolder>
       {props.events.eventsList &&
         props.events.eventsList.map(info => (
@@ -35,6 +37,7 @@ const CardList = props => {
           />
         ))}
     </CardHolder>
+    </div>
   );
 };
 

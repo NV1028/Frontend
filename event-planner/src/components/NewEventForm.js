@@ -13,7 +13,7 @@ const NewEventForm = props => {
   });
 
   const handleChange = e => {
-    console.log(e);
+    // console.log(e);
     setNewEvent({
       ...newEvent,
       [e.target.name]: e.target.value
@@ -119,7 +119,6 @@ const NewEventForm = props => {
             </label>
             <br />
             <button id="login-button" className="submit-button" type="submit">
-              {/* button above needs onClick={} */}
               Submit
             </button>
           </form>

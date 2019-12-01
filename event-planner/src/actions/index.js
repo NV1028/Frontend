@@ -155,10 +155,10 @@ export const EDIT_EVENT_REQUEST = "EDIT_EVENT_REQUEST";
 export const EDIT_EVENT_FAILURE = "EDIT_EVENT_FAILURE";
 export const EDIT_EVENT_SUCCESS = "EDIT_EVENT_SUCCESS";
 
-export const editEvent = (eventId, history) => dispatch => {
+export const editEvent = (eventValues, eventId, history) => dispatch => {
   dispatch({ type: EDIT_EVENT_REQUEST });
   axiosAuth() 
-    .put(`/api/events/${eventId}`)
+    .put(`/api/events/${eventId}`, eventValues)
     .then(res => {
       console.log(res);
       dispatch({ type: EDIT_EVENT_FAILURE });

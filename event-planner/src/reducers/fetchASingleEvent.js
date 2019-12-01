@@ -8,12 +8,12 @@ const initialState = {
   isLoggedIn: true,
   isFetchingEvents: false,
   singleEvent:{  
-  // event_name: "",
-  // description: "",
-  // event_date: "",
-  // event_time: "",
-  // budget: "",
-  // assigned_to_user: null
+   event_name: "",
+   description: "",
+   event_date: "",
+   event_time: "",
+   budget: "",
+   assigned_to_user: null
   }
 };
 

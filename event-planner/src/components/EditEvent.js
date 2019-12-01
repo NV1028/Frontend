@@ -13,15 +13,13 @@ const EditEvent = props => {
   });
   useEffect(() => {
 
-    console.log(`-----console.log of singleEvent Object-----`)
-    console.log(props.fetchASingleEvent.singleEvent)
-    console.log(`-----console.log of singleEvent Object-----`)
-setEditValues(
-  props.fetchASingleEvent.singleEvent
-)
-console.log(`-----console.log of editValues Object-----`)
-console.log(editValues)
-console.log(`-----console.log of editValues Object-----`)
+setEditValues({
+  event_name: props.fetchASingleEvent.singleEvent.event_name,
+  description: props.fetchASingleEvent.singleEvent.description,
+  event_date: props.fetchASingleEvent.singleEvent.event_date,
+  event_time: props.fetchASingleEvent.singleEvent.event_time,
+  budget: props.fetchASingleEvent.singleEvent.budget,
+  assigned_to_user: props.fetchASingleEvent.singleEvent.assigned_to_user})
 
   }, [props.fetchASingleEvent]);
 
@@ -53,6 +51,9 @@ console.log(`-----console.log of editValues Object-----`)
     if(eventValues.budget === ""){
       return alert("Please enter a budget");
     };
+    props.editEvent(eventValues, props.fetchASingleEvent.singleEvent.id, props.history);
+
+
   };
 
   return (
@@ -136,7 +137,7 @@ console.log(`-----console.log of editValues Object-----`)
             </label>
             <br />
             <button id="login-button" className="submit-button" type="submit">
-              Submit
+              Save Changes
             </button>
           </form>
         </div>
@@ -151,4 +152,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchSingleEvent, EditEvent  })(EditEvent);
+export default connect(mapStateToProps, { fetchSingleEvent, editEvent  })(EditEvent);

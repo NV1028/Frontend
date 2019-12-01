@@ -23,10 +23,10 @@ console.log(`-----console.log of editValues Object-----`)
 console.log(editValues)
 console.log(`-----console.log of editValues Object-----`)
 
-  }, []);
+  }, [props.fetchASingleEvent]);
 
   const handleChange = e => {
-    console.log(e);
+    // console.log(e);
     setEditValues({
       ...editValues,
       [e.target.name]: e.target.value
@@ -71,7 +71,8 @@ console.log(`-----console.log of editValues Object-----`)
                 type="text"
                 name="event_name"
                 placeholder="Stakeholders Meeting"
-                onChange={event => handleChange(event)}
+                value={editValues.event_name}
+                onChange={handleChange}
                 className="formInput"
               />
             </label>
@@ -84,7 +85,8 @@ console.log(`-----console.log of editValues Object-----`)
                 type="text"
                 name="description"
                 placeholder="Financial Advisory"
-                onChange={event => handleChange(event)}
+                value={editValues.description}
+                onChange={handleChange}
                 className="formInput"
               />
             </label>
@@ -98,7 +100,8 @@ console.log(`-----console.log of editValues Object-----`)
                 type="text"
                 name="event_date"
                 placeholder="MM-DD-YY"
-                onChange={event => handleChange(event)}
+                value={editValues.event_date}
+                onChange={handleChange}
                 className="formInput"
               />
               <br />
@@ -112,7 +115,8 @@ console.log(`-----console.log of editValues Object-----`)
                 type="text"
                 name="event_time"
                 placeholder="HH:MM AM/PM"
-                onChange={event => handleChange(event)}
+                value={editValues.event_time}
+                onChange={handleChange}
                 className="formInput"
               />
             </label>
@@ -125,13 +129,13 @@ console.log(`-----console.log of editValues Object-----`)
                 type="text"
                 name="budget"
                 placeholder="$$$"
-                onChange={event => handleChange(event)}
+                value={editValues.budget}
+                onChange={handleChange}
                 className="formInput"
               />
             </label>
             <br />
             <button id="login-button" className="submit-button" type="submit">
-              {/* button above needs onClick={} */}
               Submit
             </button>
           </form>

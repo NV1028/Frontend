@@ -13,7 +13,7 @@ const NewEventForm = props => {
   });
 
   const handleChange = e => {
-    console.log(e);
+    // console.log(e);
     setNewEvent({
       ...newEvent,
       [e.target.name]: e.target.value

@@ -12,7 +12,7 @@ const Register = props => {
   });
 
   const handleChange = e => {
-    console.log(e);
+    // console.log(e);
     setRegInfo({
       ...regInfo,
       [e.target.name]: e.target.value

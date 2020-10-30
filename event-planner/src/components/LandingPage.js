@@ -8,7 +8,7 @@ const LandingPage = props => {
       <div className="landingPageButtons">
         <div>
           <NavLink to="register" id="login-button" className="submit-button">
-            Signup
+            Sign Up
           </NavLink>
           <br></br>
           <br></br>

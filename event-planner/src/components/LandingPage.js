@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const LandingPage = props => {
   return (
     <div className="landingPage">
-      <h1>Welcome To Corporate Event Planner </h1>
+      <h1>Welcome To Big Beard Moves</h1>
       <div className="landingPageButtons">
         <div>
           <NavLink to="register" id="login-button" className="submit-button">

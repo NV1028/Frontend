@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { setUser } from "./actions";
 import decode from "jwt-decode";
 import { createGlobalStyle } from "styled-components";
+import {Geolocation} from './components/Geolocation'
 import {
   Nav,
   Login,
@@ -36,13 +37,15 @@ function App(props) {
 
   return (
     <div className="App">
+      <Geolocation />
       <GlobalStyles />
       <Nav />
+      
       <Switch>
-        <Route path="/register" component={Register} />
+        <Route path="/register"  />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />
-
+        {/* <Route path="/geolocation" component={Geolocation} /> */}
         <PrivateRoute path="/events" component={CardList} />
         <PrivateRoute path="/newevent" component={NewEventForm} />
         <PrivateRoute path="/editevent" component={EditEvent} />

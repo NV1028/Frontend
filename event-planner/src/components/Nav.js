@@ -30,12 +30,18 @@ const Nava = styled.div`
 const Nav = props => {
   return (
     <Navigator>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
+      <Nava>Home </Nava>
+      </Link>
       <Link to={"/register"} style={{ textDecoration: "none" }}>
         {" "}
         <Nava>Sign Up</Nava>
       </Link>
       <Link to={"/events"} style={{ textDecoration: "none" }}>
         <Nava>Events </Nava>
+      </Link>
+      <Link to={"/geolocation"} style={{ textDecoration: "none" }}>
+        <Nava>Geolocation </Nava>
       </Link>
       <Link to={"/newevent"} style={{ textDecoration: "none" }}>
         <Nava>Add New Event</Nava>

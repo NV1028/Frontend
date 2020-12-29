@@ -37,7 +37,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Geolocation />
+      
       <GlobalStyles />
       <Nav />
       
@@ -45,13 +45,14 @@ function App(props) {
         <Route path="/register"  />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />
-        {/* <Route path="/geolocation" component={Geolocation} /> */}
+        <Route path="/geolocation" component={Geolocation} />
         <PrivateRoute path="/events" component={CardList} />
         <PrivateRoute path="/newevent" component={NewEventForm} />
         <PrivateRoute path="/editevent" component={EditEvent} />
+        
 
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

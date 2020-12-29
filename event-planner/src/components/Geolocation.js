@@ -10,6 +10,7 @@ class Geolocation extends React.Component {
             userAddress: null
         }
         this.getLocation = this.getLocation.bind(this);
+        this.getCoordinates = this.getCoordinates.bind(this);
     }
     getLocation() {
         if (navigator.geolocation) {
@@ -20,7 +21,12 @@ class Geolocation extends React.Component {
     }
 
     getCoordinates(position) {
-        console.log(position)
+        console.log(position.coords.latitude);
+        this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        })
+        
     }
 
     render(){
